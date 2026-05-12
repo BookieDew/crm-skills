@@ -1,0 +1,238 @@
+{
+  "name": "sportsbook-crm-skill-pack",
+  "version": "1.0.0",
+  "market_agnostic": true,
+  "skills": [
+    {
+      "id": "crm-sportsbook-shared-principles",
+      "name": "CRM Sportsbook Shared Principles",
+      "path": "skills/crm-sportsbook-shared-principles/SKILL.md",
+      "purpose": "Source of truth for market-agnostic rules, assumption labels, runtime context, responsible-gaming guardrails, commercial protection, communication principles, measurement, and final campaign quality checks.",
+      "depends_on": [],
+      "feeds_into": [
+        "crm-sportsbook-skill-router",
+        "crm-sportsbook-market-context",
+        "crm-sportsbook-event-opportunity",
+        "crm-sportsbook-player-segmentation",
+        "crm-sportsbook-offer-mechanics",
+        "crm-sportsbook-campaign-brief",
+        "crm-sportsbook-sms-copy",
+        "crm-sportsbook-localisation",
+        "crm-sportsbook-rg-compliance-review",
+        "crm-sportsbook-journey-builder",
+        "crm-sportsbook-ab-testing",
+        "crm-sportsbook-post-campaign-analysis"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "crm-sportsbook-skill-router",
+      "name": "CRM Sportsbook Skill Router",
+      "path": "skills/crm-sportsbook-skill-router/SKILL.md",
+      "purpose": "Chooses the correct skill chain for full campaign creation, offer ideation, SMS copy, localisation, compliance review, journey building, A/B testing, post-campaign analysis, and campaign improvement.",
+      "depends_on": ["crm-sportsbook-shared-principles"],
+      "feeds_into": [
+        "crm-sportsbook-market-context",
+        "crm-sportsbook-event-opportunity",
+        "crm-sportsbook-player-segmentation",
+        "crm-sportsbook-offer-mechanics",
+        "crm-sportsbook-campaign-brief",
+        "crm-sportsbook-sms-copy",
+        "crm-sportsbook-localisation",
+        "crm-sportsbook-rg-compliance-review",
+        "crm-sportsbook-journey-builder",
+        "crm-sportsbook-ab-testing",
+        "crm-sportsbook-post-campaign-analysis"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "crm-sportsbook-market-context",
+      "name": "CRM Sportsbook Market Context",
+      "path": "skills/crm-sportsbook-market-context/SKILL.md",
+      "purpose": "Structures runtime market, language, channel, regulatory, brand, calendar, and operational context without inventing market facts.",
+      "depends_on": ["crm-sportsbook-shared-principles"],
+      "feeds_into": [
+        "crm-sportsbook-event-opportunity",
+        "crm-sportsbook-player-segmentation",
+        "crm-sportsbook-offer-mechanics",
+        "crm-sportsbook-campaign-brief",
+        "crm-sportsbook-localisation",
+        "crm-sportsbook-rg-compliance-review"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "crm-sportsbook-event-opportunity",
+      "name": "CRM Sportsbook Event Opportunity",
+      "path": "skills/crm-sportsbook-event-opportunity/SKILL.md",
+      "purpose": "Identifies sportsbook CRM opportunities around runtime-supplied sports, fixtures, tournaments, calendar moments, and betting moments.",
+      "depends_on": ["crm-sportsbook-shared-principles", "crm-sportsbook-market-context"],
+      "feeds_into": [
+        "crm-sportsbook-player-segmentation",
+        "crm-sportsbook-offer-mechanics",
+        "crm-sportsbook-campaign-brief",
+        "crm-sportsbook-journey-builder",
+        "crm-sportsbook-ab-testing"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "crm-sportsbook-player-segmentation",
+      "name": "CRM Sportsbook Player Segmentation",
+      "path": "skills/crm-sportsbook-player-segmentation/SKILL.md",
+      "purpose": "Defines and evaluates sportsbook CRM player segments by lifecycle, value, activity, sport preference, bet type, VIP status, bonus sensitivity, churn risk, RG flags, sharp or arb sensitivity, and channel eligibility.",
+      "depends_on": ["crm-sportsbook-shared-principles", "crm-sportsbook-market-context"],
+      "feeds_into": [
+        "crm-sportsbook-offer-mechanics",
+        "crm-sportsbook-campaign-brief",
+        "crm-sportsbook-sms-copy",
+        "crm-sportsbook-journey-builder",
+        "crm-sportsbook-ab-testing",
+        "crm-sportsbook-post-campaign-analysis"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "crm-sportsbook-offer-mechanics",
+      "name": "CRM Sportsbook Offer Mechanics",
+      "path": "skills/crm-sportsbook-offer-mechanics/SKILL.md",
+      "purpose": "Designs sportsbook offer mechanics with segment fit, commercial protection, responsible-gaming checks, and clear constraints.",
+      "depends_on": [
+        "crm-sportsbook-shared-principles",
+        "crm-sportsbook-market-context",
+        "crm-sportsbook-player-segmentation"
+      ],
+      "feeds_into": [
+        "crm-sportsbook-campaign-brief",
+        "crm-sportsbook-sms-copy",
+        "crm-sportsbook-rg-compliance-review",
+        "crm-sportsbook-journey-builder",
+        "crm-sportsbook-ab-testing"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "crm-sportsbook-campaign-brief",
+      "name": "CRM Sportsbook Campaign Brief",
+      "path": "skills/crm-sportsbook-campaign-brief/SKILL.md",
+      "purpose": "Synthesises market context, event opportunity, segment, offer, channel plan, copy direction, exclusions, compliance notes, commercial logic, testing, and metrics into a complete CRM campaign brief.",
+      "depends_on": [
+        "crm-sportsbook-shared-principles",
+        "crm-sportsbook-market-context",
+        "crm-sportsbook-event-opportunity",
+        "crm-sportsbook-player-segmentation",
+        "crm-sportsbook-offer-mechanics"
+      ],
+      "feeds_into": [
+        "crm-sportsbook-sms-copy",
+        "crm-sportsbook-localisation",
+        "crm-sportsbook-rg-compliance-review",
+        "crm-sportsbook-journey-builder",
+        "crm-sportsbook-ab-testing",
+        "crm-sportsbook-post-campaign-analysis"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "crm-sportsbook-sms-copy",
+      "name": "CRM Sportsbook SMS Copy",
+      "path": "skills/crm-sportsbook-sms-copy/SKILL.md",
+      "purpose": "Creates concise, compliant sportsbook SMS variants with character counts, copy angle, segment fit, CTA clarity, T&C handling, RG notes, commercial notes, recommended variant, and A/B test suggestion.",
+      "depends_on": [
+        "crm-sportsbook-shared-principles",
+        "crm-sportsbook-campaign-brief",
+        "crm-sportsbook-offer-mechanics"
+      ],
+      "feeds_into": [
+        "crm-sportsbook-localisation",
+        "crm-sportsbook-rg-compliance-review",
+        "crm-sportsbook-journey-builder",
+        "crm-sportsbook-ab-testing"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "crm-sportsbook-localisation",
+      "name": "CRM Sportsbook Localisation",
+      "path": "skills/crm-sportsbook-localisation/SKILL.md",
+      "purpose": "Adapts campaign logic and copy to runtime-supplied target market, target language, brand tone, local style, and regulatory notes without inventing local facts.",
+      "depends_on": [
+        "crm-sportsbook-shared-principles",
+        "crm-sportsbook-market-context",
+        "crm-sportsbook-campaign-brief"
+      ],
+      "feeds_into": [
+        "crm-sportsbook-sms-copy",
+        "crm-sportsbook-rg-compliance-review",
+        "crm-sportsbook-journey-builder"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "crm-sportsbook-rg-compliance-review",
+      "name": "CRM Sportsbook RG Compliance Review",
+      "path": "skills/crm-sportsbook-rg-compliance-review/SKILL.md",
+      "purpose": "Reviews campaigns, offers, journeys, and copy for responsible-gaming, compliance, UX, brand, and commercial risk with launch recommendation.",
+      "depends_on": [
+        "crm-sportsbook-shared-principles",
+        "crm-sportsbook-market-context"
+      ],
+      "feeds_into": [
+        "crm-sportsbook-campaign-brief",
+        "crm-sportsbook-sms-copy",
+        "crm-sportsbook-journey-builder",
+        "crm-sportsbook-ab-testing"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "crm-sportsbook-journey-builder",
+      "name": "CRM Sportsbook Journey Builder",
+      "path": "skills/crm-sportsbook-journey-builder/SKILL.md",
+      "purpose": "Turns a campaign into a customer journey with message timing, reminder logic, suppression logic, exit criteria, control group, frequency caps, and RG-safe reactivation.",
+      "depends_on": [
+        "crm-sportsbook-shared-principles",
+        "crm-sportsbook-campaign-brief",
+        "crm-sportsbook-rg-compliance-review"
+      ],
+      "feeds_into": [
+        "crm-sportsbook-ab-testing",
+        "crm-sportsbook-post-campaign-analysis"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "crm-sportsbook-ab-testing",
+      "name": "CRM Sportsbook A/B Testing",
+      "path": "skills/crm-sportsbook-ab-testing/SKILL.md",
+      "purpose": "Designs A/B or multivariate tests with hypothesis, variant logic, KPIs, segment split, control group, measurement window, risk controls, and decision rule.",
+      "depends_on": [
+        "crm-sportsbook-shared-principles",
+        "crm-sportsbook-campaign-brief",
+        "crm-sportsbook-journey-builder"
+      ],
+      "feeds_into": ["crm-sportsbook-post-campaign-analysis"],
+      "status": "ready"
+    },
+    {
+      "id": "crm-sportsbook-post-campaign-analysis",
+      "name": "CRM Sportsbook Post-Campaign Analysis",
+      "path": "skills/crm-sportsbook-post-campaign-analysis/SKILL.md",
+      "purpose": "Analyses campaign performance by segment, offer, channel, bonus cost, GGR/NGR impact, RG observations, learnings, and next campaign recommendations.",
+      "depends_on": [
+        "crm-sportsbook-shared-principles",
+        "crm-sportsbook-campaign-brief",
+        "crm-sportsbook-ab-testing"
+      ],
+      "feeds_into": [
+        "crm-sportsbook-market-context",
+        "crm-sportsbook-player-segmentation",
+        "crm-sportsbook-offer-mechanics",
+        "crm-sportsbook-campaign-brief"
+      ],
+      "status": "ready"
+    }
+  ]
+}
+
