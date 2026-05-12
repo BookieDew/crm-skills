@@ -67,12 +67,15 @@
       "id": "crm-sportsbook-event-opportunity",
       "name": "CRM Sportsbook Event Opportunity",
       "path": "skills/crm-sportsbook-event-opportunity/SKILL.md",
-      "purpose": "Identifies sportsbook CRM opportunities around runtime-supplied sports, fixtures, tournaments, calendar moments, and betting moments.",
+      "purpose": "Identifies sportsbook CRM opportunities around runtime-supplied sports, fixtures, tournaments, calendar moments, lifecycle moments, and betting moments.",
       "depends_on": ["crm-sportsbook-shared-principles", "crm-sportsbook-market-context"],
       "feeds_into": [
         "crm-sportsbook-player-segmentation",
         "crm-sportsbook-offer-mechanics",
         "crm-sportsbook-campaign-brief",
+        "crm-sportsbook-sms-copy",
+        "crm-sportsbook-localisation",
+        "crm-sportsbook-rg-compliance-review",
         "crm-sportsbook-journey-builder",
         "crm-sportsbook-ab-testing"
       ],
