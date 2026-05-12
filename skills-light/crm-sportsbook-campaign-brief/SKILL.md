@@ -36,6 +36,7 @@ Do not create market research from scratch, choose raw-data segments, design com
 - If market context, event context, segment logic, or offer mechanics are missing, mark [NEEDS CONFIRMATION] and recommend the relevant upstream skill.
 - If [TARGET_CHANNEL] is SMS, keep one offer, one CTA, clear value, and clear [T&CS_LINK].
 - If the offer is too complex for SMS, simplify or use supporting explanation.
+- If channel opt-in or suppression handling is missing, do not claim launch readiness.
 - For reactivation, suppress RG-risk and relevant heavy-loss users; avoid emotional pressure.
 - For retention, justify incrementality and avoid over-incentivising natural activity.
 - For activation, keep first action simple.
@@ -54,7 +55,7 @@ Consider sport/event relevance, pre-match vs live timing, single vs accumulator 
 Do not assume local language, laws, sport preferences, betting habits, channel rules, event schedules, operators, payment methods, holidays, regulators, or cultural tone.
 
 ## Responsible-Gaming Guardrails
-Reject or route for revision if the brief targets self-excluded, RG-risk, cooling-off, opted-out, or relevant heavy-loss users; encourages chasing losses; uses loss recovery; frames betting as financial help; implies guaranteed profit; hides restrictions; or uses manipulative urgency.
+Reject or route for revision if the brief targets self-excluded, RG-risk, cooling-off, opted-out, users without valid channel opt-in, or relevant heavy-loss users; encourages chasing losses; uses loss recovery; frames betting as financial help; implies guaranteed profit; hides restrictions; or uses manipulative urgency.
 
 ## Commercial Guardrails
 Require capped value, qualification clarity, expiry, eligible markets, minimum stake/odds where relevant, usage limits, bonus abuse controls, sharp/arb controls, VIP exposure review, control group where useful, GGR/NGR/bonus cost tracking, and incrementality caution.
@@ -94,6 +95,7 @@ Use [CONFIRMED], [ASSUMPTION], [NEEDS CONFIRMATION], [RISK], and [RECOMMENDATION
 - Inclusion:
 - Exclusion:
 - Suppressions:
+- Channel opt-in requirement:
 - Segment rationale:
 
 ## 6. Event / Sport Rationale

@@ -71,6 +71,14 @@ When editing a skill:
 - Keep channel-specific responsibilities separate
 - Do not weaken sportsbook specificity
 
+## Full vs Light Editing Rules
+When editing full and light skill versions:
+- Keep every active full skill matched by one light skill with the same `id`
+- Keep light skills compact, but preserve core purpose, dependencies, output structure, market-agnostic rules, RG/compliance guardrails, commercial controls, channel rules, assumption labels, and sportsbook-specific decision logic
+- Do not remove self-exclusion, RG-risk, cooling-off, channel opt-in, T&C clarity, suppression, verdict, journey exit, control group, or incrementality guardrails from light skills
+- Keep full skills in `skills/` and light skills in `skills-light/`
+- Keep `skill-manifest.json` and `skill-manifest-light.json` aligned by skill ID, path, dependency logic, feeds-into logic, and status
+
 ## Documentation Editing Rules
 When editing docs:
 - Keep docs aligned with actual skills
@@ -81,11 +89,12 @@ When editing docs:
 - Keep responsible-gaming and market-agnostic wording consistent across docs
 
 ## Manifest Editing Rules
-When editing `skill-manifest.json`:
+When editing `skill-manifest.json` or `skill-manifest-light.json`:
 - Keep valid JSON
-- Include every active skill once
+- Include every active full or light skill once
 - Use the required fields: `id`, `name`, `path`, `purpose`, `depends_on`, `feeds_into`, `status`
 - Use `status: "active"` for current skills
+- Use `status: "active-light"` for light skills
 - Keep dependency and feedback links coherent
 - Confirm every listed path exists
 

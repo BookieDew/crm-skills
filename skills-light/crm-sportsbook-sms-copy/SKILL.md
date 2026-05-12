@@ -23,6 +23,7 @@ Do not write full email, push, landing page, or legal [T&CS]. Do not create camp
 - [TARGET_LANGUAGE] or instruction to keep source language.
 - [CAMPAIGN_OBJECTIVE]
 - [TARGET_SEGMENT]
+- [COMMUNICATION_OPT_IN_STATUS] or SMS opt-in confirmation.
 - [OFFER_MECHANIC]
 - [OFFER_VALUE]
 - CTA or action instruction.
@@ -31,7 +32,7 @@ Do not write full email, push, landing page, or legal [T&CS]. Do not create camp
 ## Core Workflow
 1. Confirm [TARGET_CHANNEL] is SMS.
 2. Apply shared principles and read campaign brief, offer mechanics, segmentation, market context, and event context if available.
-3. Confirm [CAMPAIGN_OBJECTIVE], [TARGET_SEGMENT], [OFFER_MECHANIC], [OFFER_VALUE], CTA, [T&CS_LINK], and key offer constraints.
+3. Confirm [CAMPAIGN_OBJECTIVE], [TARGET_SEGMENT], SMS opt-in status, [OFFER_MECHANIC], [OFFER_VALUE], CTA, [T&CS_LINK], and key offer constraints.
 4. Mark missing copy-critical inputs as [NEEDS CONFIRMATION].
 5. Decide whether the mechanic can be explained in SMS.
 6. Write distinct SMS variants: value-led, event-led, simple CTA, reactivation-safe, expiry-led, or product-led as appropriate.
@@ -41,7 +42,7 @@ Do not write full email, push, landing page, or legal [T&CS]. Do not create camp
 
 ## Core Decision Logic
 - If [TARGET_CHANNEL] is not SMS, do not write non-SMS copy.
-- If [TARGET_LANGUAGE], [OFFER_MECHANIC], [TARGET_SEGMENT], [T&CS_LINK], or [T&CS] handling is missing, mark [NEEDS CONFIRMATION].
+- If [TARGET_LANGUAGE], [OFFER_MECHANIC], [TARGET_SEGMENT], SMS opt-in status, [T&CS_LINK], or [T&CS] handling is missing, mark [NEEDS CONFIRMATION].
 - If the offer is too complex for SMS, simplify or recommend offer mechanics review.
 - Use one message, one offer, one CTA, and visible [T&CS_LINK] or [T&CS] cue.
 - Avoid jargon, aggressive urgency, excessive punctuation, unapproved emojis, hidden restrictions, and invasive personalisation.
@@ -65,7 +66,7 @@ Do not write full email, push, landing page, or legal [T&CS]. Do not create camp
 Do not assume local language, slang, tone, sport preference, event facts, regulations, operators, payment methods, or cultural behaviour. Examples must use placeholders only.
 
 ## Responsible-Gaming Guardrails
-SMS must not target self-excluded, RG-risk, cooling-off, opted-out, or relevant heavy-loss users. It must not encourage chasing losses, recover losses, imply certainty, create financial pressure, hide restrictions, or make betting necessary to enjoy [TARGET_EVENT].
+SMS must not target self-excluded, RG-risk, cooling-off, opted-out, users without valid SMS opt-in, or relevant heavy-loss users. It must not encourage chasing losses, recover losses, imply certainty, create financial pressure, hide restrictions, or make betting necessary to enjoy [TARGET_EVENT].
 
 ## Commercial Guardrails
 Flag copy that overstates [OFFER_VALUE], omits important restrictions, weakens qualification, hides expiry, makes abuse easier, attracts sharp/arb exploitation, or creates support burden.
@@ -84,6 +85,7 @@ Use [CONFIRMED], [ASSUMPTION], [NEEDS CONFIRMATION], [RISK], and [RECOMMENDATION
 - Target market: [TARGET_MARKET]
 - Target language: [TARGET_LANGUAGE]
 - Target segment: [TARGET_SEGMENT]
+- SMS opt-in status: [COMMUNICATION_OPT_IN_STATUS]
 - Campaign objective: [CAMPAIGN_OBJECTIVE]
 - Sport/event: [TARGET_SPORT] / [TARGET_EVENT]
 - Offer mechanic: [OFFER_MECHANIC]

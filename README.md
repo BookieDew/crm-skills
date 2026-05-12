@@ -160,9 +160,11 @@ All skills must avoid:
 3. Read `skills/crm-sportsbook-shared-principles/SKILL.md`.
 4. Read relevant existing upstream and downstream skills.
 5. Create `skills/[skill-id]/SKILL.md`.
-6. Update `skill-manifest.json`.
-7. Update docs if the usage flow, inputs, audit rules, or extension guidance changes.
-8. Run the audit checklist in `docs/audit-checklist.md`.
+6. Create `skills-light/[skill-id]/SKILL.md` if a light version is part of the release.
+7. Update `skill-manifest.json`.
+8. Update `skill-manifest-light.json` if a light version is created or changed.
+9. Update docs if the usage flow, inputs, audit rules, or extension guidance changes.
+10. Run the audit checklist in `docs/audit-checklist.md`.
 
 ## Suggested Future Skills
 Future extensions may include:
@@ -173,7 +175,7 @@ Future extensions may include:
 - `crm-sportsbook-landing-page-copy`
 - `crm-sportsbook-terms-simplifier`
 
-These future skills do not exist yet. Do not document them as active skills until they are created and added to `skill-manifest.json`.
+These future skills do not exist yet. Do not document them as active skills until they are created and added to the relevant manifest.
 
 ## Git Workflow
 - Prefer one skill per commit when possible.

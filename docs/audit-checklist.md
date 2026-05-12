@@ -87,6 +87,16 @@ Check:
 - Incrementality considered
 - NGR/GGR/bonus cost considered
 
+## Full vs Light Audit
+Check:
+- Every full skill in `skills/` has a matching light skill in `skills-light/`
+- Every light skill has a matching full skill with the same `id`
+- `skill-manifest.json` and `skill-manifest-light.json` list the same skill IDs
+- Full skill status is `active`
+- Light skill status is `active-light`
+- Light skills preserve purpose, dependency logic, output template, assumption labels, market-agnostic rules, RG/compliance guardrails, commercial controls, channel rules, and sportsbook specificity
+- Light skills do not remove self-exclusion, RG-risk, cooling-off, channel opt-in, T&C clarity, suppression, verdict, journey exit, control group, or incrementality guardrails
+
 ## Output Quality Audit
 Check:
 - Output templates are practical
