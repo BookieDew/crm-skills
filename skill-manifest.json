@@ -239,10 +239,17 @@
       "id": "crm-sportsbook-ab-testing",
       "name": "CRM Sportsbook A/B Testing",
       "path": "skills/crm-sportsbook-ab-testing/SKILL.md",
-      "purpose": "Designs A/B or multivariate tests with hypothesis, variant logic, KPIs, segment split, control group, measurement window, risk controls, and decision rule.",
+      "purpose": "Designs safe, measurable sportsbook CRM A/B tests and simple experiment plans with hypotheses, variants, audience splits, controls, KPIs, guardrails, measurement windows, decision rules, suppression logic, commercial risk controls, and post-campaign analysis handoff.",
       "depends_on": [
         "crm-sportsbook-shared-principles",
+        "crm-sportsbook-market-context",
+        "crm-sportsbook-event-opportunity",
+        "crm-sportsbook-player-segmentation",
+        "crm-sportsbook-offer-mechanics",
         "crm-sportsbook-campaign-brief",
+        "crm-sportsbook-sms-copy",
+        "crm-sportsbook-localisation",
+        "crm-sportsbook-rg-compliance-review",
         "crm-sportsbook-journey-builder"
       ],
       "feeds_into": ["crm-sportsbook-post-campaign-analysis"],
