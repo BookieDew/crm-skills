@@ -217,10 +217,16 @@
       "id": "crm-sportsbook-journey-builder",
       "name": "CRM Sportsbook Journey Builder",
       "path": "skills/crm-sportsbook-journey-builder/SKILL.md",
-      "purpose": "Turns a campaign into a customer journey with message timing, reminder logic, suppression logic, exit criteria, control group, frequency caps, and RG-safe reactivation.",
+      "purpose": "Turns sportsbook CRM campaign briefs, offers, segments, SMS copy, localisation outputs, and RG/compliance reviews into operational journeys with triggers, entry rules, steps, timing, suppressions, exits, frequency caps, control groups, measurement, and fallback logic.",
       "depends_on": [
         "crm-sportsbook-shared-principles",
+        "crm-sportsbook-market-context",
+        "crm-sportsbook-event-opportunity",
+        "crm-sportsbook-player-segmentation",
+        "crm-sportsbook-offer-mechanics",
         "crm-sportsbook-campaign-brief",
+        "crm-sportsbook-sms-copy",
+        "crm-sportsbook-localisation",
         "crm-sportsbook-rg-compliance-review"
       ],
       "feeds_into": [
