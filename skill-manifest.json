@@ -107,18 +107,21 @@
       "id": "crm-sportsbook-offer-mechanics",
       "name": "CRM Sportsbook Offer Mechanics",
       "path": "skills/crm-sportsbook-offer-mechanics/SKILL.md",
-      "purpose": "Designs sportsbook offer mechanics with segment fit, commercial protection, responsible-gaming checks, and clear constraints.",
+      "purpose": "Designs, evaluates, and refines sportsbook offer mechanics with segment fit, event and channel suitability, commercial exposure controls, responsible-gaming safeguards, and clear constraints.",
       "depends_on": [
         "crm-sportsbook-shared-principles",
         "crm-sportsbook-market-context",
+        "crm-sportsbook-event-opportunity",
         "crm-sportsbook-player-segmentation"
       ],
       "feeds_into": [
         "crm-sportsbook-campaign-brief",
         "crm-sportsbook-sms-copy",
+        "crm-sportsbook-localisation",
         "crm-sportsbook-rg-compliance-review",
         "crm-sportsbook-journey-builder",
-        "crm-sportsbook-ab-testing"
+        "crm-sportsbook-ab-testing",
+        "crm-sportsbook-post-campaign-analysis"
       ],
       "status": "ready"
     },
