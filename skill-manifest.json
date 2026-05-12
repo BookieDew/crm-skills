@@ -58,6 +58,7 @@
         "crm-sportsbook-offer-mechanics",
         "crm-sportsbook-campaign-brief",
         "crm-sportsbook-localisation",
+        "crm-sportsbook-sms-copy",
         "crm-sportsbook-rg-compliance-review"
       ],
       "status": "ready"
@@ -235,4 +236,3 @@
     }
   ]
 }
-

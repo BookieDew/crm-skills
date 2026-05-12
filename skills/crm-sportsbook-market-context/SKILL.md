@@ -1,181 +1,439 @@
 ---
 name: crm-sportsbook-market-context
-description: Analyses runtime-supplied sportsbook CRM market context while separating confirmed inputs, assumptions, needs confirmation, risks, and recommendations without hardcoding market facts.
+description: Builds market context for market-agnostic sportsbook CRM campaigns using runtime inputs only. Separates confirmed facts, assumptions, needs confirmation, risks, and recommendations before event, segment, offer, copy, localisation, and compliance work.
 ---
 
 # CRM Sportsbook Market Context
 
 ## Purpose
 
-Structure the runtime market context for sportsbook CRM work. This skill captures what is known, what is missing, what is risky, and what must be confirmed before campaign, offer, copy, journey, localisation, or analysis work proceeds.
+This skill helps sportsbook CRM teams build market context before creating sportsbook CRM campaigns.
+
+It helps the CRM team understand what must be known about `[TARGET_MARKET]` before selecting events, segments, offers, channels, copy, and localisation approach.
+
+This skill does not create full campaign outputs. It creates the market context layer that other skills use.
 
 ## Role in the Skill Pack
 
-This skill runs after `crm-sportsbook-shared-principles` and before event, segmentation, offer, campaign brief, localisation, and compliance work.
+This skill should normally run early in the campaign process, after `crm-sportsbook-shared-principles` and when routed by `crm-sportsbook-skill-router`.
+
+It provides market context that informs:
+
+- Event opportunity selection.
+- Player segmentation.
+- Offer mechanics.
+- Campaign brief.
+- Localisation.
+- SMS copy.
+- RG/compliance review.
+
+It should not create full campaigns by itself. It should feed structured, labelled market context into:
+
+- `crm-sportsbook-event-opportunity`
+- `crm-sportsbook-player-segmentation`
+- `crm-sportsbook-offer-mechanics`
+- `crm-sportsbook-campaign-brief`
+- `crm-sportsbook-localisation`
+- `crm-sportsbook-sms-copy`
+- `crm-sportsbook-rg-compliance-review`
 
 ## When to Use
 
-- A target market is named at runtime.
-- A campaign needs local terms, language, style, channel, timing, or regulatory input.
-- The user gives partial market notes and wants them structured.
-- The AI needs to distinguish confirmed market facts from assumptions.
-- Localisation or compliance review needs runtime market context.
+Use this skill when the CRM manager needs to:
+
+- Plan a campaign for `[TARGET_MARKET]`.
+- Enter or assess a new market.
+- Understand market-specific assumptions.
+- Choose relevant sports or events.
+- Decide whether SMS, email, push, inbox, or another channel may be suitable.
+- Adapt campaign tone.
+- Prepare localisation guidance.
+- Check whether local regulatory or responsible-gaming notes are missing.
+- Identify what must be confirmed before campaign launch.
 
 ## When Not to Use
 
-- Do not use this skill to generate campaign copy; use `crm-sportsbook-sms-copy` for SMS.
-- Do not use this skill to invent fixtures, regulations, payment methods, or cultural facts.
-- Do not use this skill as final compliance sign-off; use `crm-sportsbook-rg-compliance-review`.
-- Do not use this skill to select offers alone; use `crm-sportsbook-offer-mechanics`.
+Do not use this skill to:
+
+- Write final customer-facing SMS copy.
+- Design the full offer mechanic.
+- Build the full campaign brief.
+- Analyse post-campaign performance.
+- Draft legal terms and conditions.
+- Make unsupported claims about a specific market.
+
+Route those requests to the appropriate skills:
+
+- SMS copy: `crm-sportsbook-sms-copy`.
+- Offer design: `crm-sportsbook-offer-mechanics`.
+- Campaign synthesis: `crm-sportsbook-campaign-brief`.
+- Post-campaign analysis: `crm-sportsbook-post-campaign-analysis`.
+- Legal, RG, or launch risk review: `crm-sportsbook-rg-compliance-review`.
+- Routing uncertainty: `crm-sportsbook-skill-router`.
 
 ## Required Inputs
 
 ### Minimum required inputs
 
 - `[TARGET_MARKET]`
-- Campaign objective or intended use.
+- `[CAMPAIGN_OBJECTIVE]` if known.
 
 ### Recommended inputs
 
 - `[TARGET_LANGUAGE]`
 - `[TARGET_CHANNEL]`
+- `[TARGET_SPORT]`
+- `[TARGET_EVENT]`
+- `[TARGET_SEGMENT]`
 - `[BRAND_TONE]`
 - `[REGULATORY_NOTES]`
-- `[T&CS]`
-- Local calendar details supplied by the user.
-- Product availability supplied by the user.
 
 ### Advanced optional inputs
 
-- Channel consent rules.
-- Local style guide supplied at runtime.
-- Approved claims list.
-- Prohibited terms list.
-- Bonus policy.
-- Frequency caps.
-- Market-specific suppression rules supplied by the user.
+- Internal market research.
+- Local sports calendar.
+- Local event calendar.
+- Competitor campaign examples.
+- Channel engagement data.
+- Device usage data.
+- Deposit or payment behaviour.
+- Historical campaign performance.
+- Local compliance notes.
+- Local responsible-gaming requirements.
+- Customer segment data.
+- Brand localisation guidelines.
 
 ## Output
 
-This skill produces a market-context brief with confirmed runtime inputs, assumptions, needs confirmation, risks, recommendations, and implications for event selection, segmentation, offers, copy, localisation, and compliance review.
+The skill should produce:
+
+- Market context summary.
+- Confirmed inputs.
+- Working assumptions.
+- Items needing confirmation.
+- Market-specific CRM implications.
+- Sport/event relevance considerations.
+- Channel considerations.
+- Localisation considerations.
+- Compliance and RG uncertainty notes.
+- Risks.
+- Recommended next skills.
 
 ## Workflow
 
-1. Load `crm-sportsbook-shared-principles`.
-2. Capture every supplied market detail as `[CONFIRMED]`.
-3. Identify missing market, language, channel, regulatory, terms, consent, and product details.
-4. Mark missing details `[NEEDS CONFIRMATION]`.
-5. If a pragmatic interim assumption is unavoidable, label it `[ASSUMPTION]`.
-6. Identify RG, compliance, commercial, brand, and UX risks.
-7. Recommend how downstream skills should use or avoid the market details.
-8. State whether research is required if current or local facts are needed and tools are available.
+1. Identify `[TARGET_MARKET]` from the user's runtime input.
+2. Load and apply `crm-sportsbook-shared-principles`.
+3. If the request is ambiguous, use `crm-sportsbook-skill-router` routing logic to confirm this is the correct skill.
+4. List all user-provided facts as `[CONFIRMED]`.
+5. Separate confirmed facts from assumptions.
+6. Identify missing market-specific information.
+7. Mark important unknowns as `[NEEDS CONFIRMATION]`.
+8. If the user provided market research, summarise it without overextending it.
+9. If no market research is provided, do not invent hard facts.
+10. Consider sportsbook CRM implications for:
+    - Sport relevance.
+    - Event relevance.
+    - Channel suitability.
+    - Language and tone.
+    - Offer complexity.
+    - Deposit or payment behaviour if provided.
+    - Regulatory uncertainty.
+    - Responsible-gaming considerations.
+11. Recommend what the CRM team should confirm before launch.
+12. Recommend the next skill or skill chain.
 
 ## Decision Logic
 
-- If `[TARGET_MARKET]` is not supplied, do not produce market-specific recommendations.
-- If `[TARGET_LANGUAGE]` is missing, provide structure only and mark copy or localisation `[NEEDS CONFIRMATION]`.
-- If `[REGULATORY_NOTES]` are missing, use baseline RG rules and mark local compliance `[NEEDS CONFIRMATION]`.
-- If `[T&CS]` are missing, do not finalise offer copy.
-- If local event timing is missing, do not invent fixtures or calendar moments.
-- If product availability is unclear, avoid recommending mechanics that depend on unavailable bet types.
-- If channel consent or eligibility is unclear, mark launch readiness `[RISK]`.
+Apply these rules:
+
+- If `[TARGET_MARKET]` is missing, ask for it or mark it as `[NEEDS CONFIRMATION]`.
+- If `[TARGET_LANGUAGE]` is missing, do not assume it. Mark it as `[NEEDS CONFIRMATION]`.
+- If `[TARGET_CHANNEL]` is missing, provide neutral channel considerations rather than choosing one without context.
+- If `[TARGET_SPORT]` or `[TARGET_EVENT]` is missing, recommend using `crm-sportsbook-event-opportunity` next.
+- If local regulation is unknown, mark it as `[NEEDS CONFIRMATION]` and do not make compliance claims.
+- If local sport preference is unknown, do not invent it. Suggest confirming with internal betting data or market research.
+- If channel behaviour is unknown, suggest validating with internal delivery, engagement, and conversion data.
+- If localisation tone is unknown, recommend using `crm-sportsbook-localisation`.
+- If `[CAMPAIGN_OBJECTIVE]` is known, tailor the market implications to that objective.
+- If `[CAMPAIGN_OBJECTIVE]` is unknown, provide general market-context questions and recommend clarifying the objective.
+- If responsible-gaming, opt-in, cooling-off, or suppression handling is unclear, route to `crm-sportsbook-rg-compliance-review`.
+- If the target channel is SMS, route downstream output through `crm-sportsbook-sms-copy` after campaign and offer logic are defined.
 
 ## Dependencies
 
-- Skills that should normally run before this one: `crm-sportsbook-shared-principles`.
-- Skills that should normally run after this one: `crm-sportsbook-event-opportunity`, `crm-sportsbook-player-segmentation`, `crm-sportsbook-offer-mechanics`, `crm-sportsbook-campaign-brief`, `crm-sportsbook-localisation`, `crm-sportsbook-rg-compliance-review`.
-- Shared principles it must follow: market-agnostic rules, assumption labels, responsible-gaming baseline, suppression rules, commercial protection, channel communication principles, and measurement principles.
+- Normally run before this skill: `crm-sportsbook-shared-principles`, and `crm-sportsbook-skill-router` when the user request is broad or ambiguous.
+- Normally run after this skill: `crm-sportsbook-event-opportunity`, `crm-sportsbook-player-segmentation`, `crm-sportsbook-offer-mechanics`, `crm-sportsbook-campaign-brief`, `crm-sportsbook-localisation`, `crm-sportsbook-sms-copy`, and `crm-sportsbook-rg-compliance-review`.
+- Shared principles it must follow: market-agnostic rules, assumption labels, responsible-gaming baseline rules, suppression rules, commercial protection rules, channel communication principles, brand and UX principles, and measurement principles.
 
 ## Sportsbook-Specific Considerations
 
-Capture runtime information relevant to sport preference, event relevance, bet type preference, pre-match versus live betting, single versus accumulator preference, odds boost suitability, free bet suitability, cashback suitability, bet builder suitability, deposit behaviour, bonus history, bonus sensitivity, VIP status, recreational versus sharp behaviour, arb-sensitive users, churn risk, stake level, margin protection, event timing, and bonus abuse risk.
+The skill should consider, without inventing local facts:
+
+- Popular sports in `[TARGET_MARKET]`, if provided or researched.
+- Relevant leagues or tournaments, if provided or researched.
+- Local event timing.
+- Pre-match vs live betting behaviour.
+- Single bet vs accumulator preference.
+- Bonus sensitivity.
+- Average stake and deposit behaviour.
+- VIP or high-value segment relevance.
+- Recreational vs sharp behaviour.
+- Channel engagement by segment.
+- Risk of bonus abuse.
+- Offer simplicity by channel.
+- Margin protection.
+- Local restrictions on offer wording, if provided.
+- Local customer expectations around promotions, if provided.
 
 ## Market-Agnostic Design Rules
 
-Never assume a market. Never hardcode country, region, language, local league, local sport preference, local operator, local regulation, local payment method, or geo-specific behaviour.
+The skill must never assume:
 
-If market-specific knowledge is needed, ask for the missing detail, label an interim point `[ASSUMPTION]`, mark it `[NEEDS CONFIRMATION]`, or instruct research if tools are available. Do not invent hard market facts.
+- Country-specific laws.
+- Local language.
+- Local betting preferences.
+- Local payment methods.
+- Local sports popularity.
+- Local leagues.
+- Local operators.
+- Local holidays.
+- Local cultural behaviour.
+- Local regulatory restrictions.
+
+All market-specific details must come from:
+
+- User-provided inputs.
+- Internal documents.
+- Confirmed research.
+- Runtime browsing or research tools, if available.
+
+If a detail is not confirmed, label it:
+
+- `[ASSUMPTION]`
+- `[NEEDS CONFIRMATION]`
+- `[RISK]`
+- `[RECOMMENDATION]`
+
+Do not present assumptions as facts.
 
 ## Channel-Aware Design Rules
 
-Adapt market context to `[TARGET_CHANNEL]`.
+The skill should consider `[TARGET_CHANNEL]` if supplied.
 
 For SMS:
 
-- Confirm whether SMS consent and frequency caps are supplied.
-- Keep copy short.
-- Make the offer clear in one sentence.
-- Use a simple CTA.
-- Avoid complex mechanics.
-- Avoid aggressive urgency.
-- Include or reference T&Cs clearly.
-- Avoid jargon.
+- Recommend simple campaign mechanics.
+- Recommend short and direct messaging.
+- Flag complex mechanics as possible UX risk.
+- Recommend clear CTA.
+- Recommend accessible terms and conditions.
+- Avoid assuming SMS is best unless supported by user input or data.
 
-Email and push are future channel-specific skills and must not be blended into SMS guidance.
+For email:
+
+- Note that detailed email copy should be handled by a future email-specific skill.
+- Use this skill only to flag market context, tone, term visibility, and channel suitability questions.
+
+For push:
+
+- Note that detailed push copy should be handled by a future push-specific skill.
+- Use this skill only to flag market context, brevity, opt-in, and timing questions.
+
+For inbox or onsite messaging:
+
+- Consider whether the campaign needs more persistent, reviewable information than an outbound message.
+- Confirm whether terms, eligibility, and offer status can be made visible.
+
+For VIP outreach:
+
+- Recommend careful personalisation and stronger RG/compliance checks.
+- Confirm that personalisation is based on appropriate, confirmed customer context.
 
 ## Responsible Gaming & Compliance Guardrails
 
-Apply baseline responsible-gaming rules even if the user says the market has no strict rules. Flag any missing suppression or local compliance input as `[RISK]` or `[NEEDS CONFIRMATION]`.
+The skill must follow `crm-sportsbook-shared-principles` responsible-gaming rules.
 
-Avoid targeting self-excluded users, RG risk users, users selected due to recent heavy losses, or users with no valid channel eligibility. Avoid chasing-loss language, financial-solution claims, guaranteed-win language, misleading risk-free claims unless approved, aggressive urgency, hidden T&Cs, emotional pressure, and manipulative win-back language.
+It must flag if the market context is missing:
+
+- Self-exclusion handling.
+- RG-risk suppression rules.
+- Channel opt-in requirements.
+- Cooling-off rules.
+- Promotional restrictions.
+- Terms and conditions requirements.
+- Age or identity verification requirements, where relevant.
+- Local restrictions on bonus wording, where relevant.
+
+The skill must never recommend campaigns that:
+
+- Target self-excluded users.
+- Target users with RG risk flags.
+- Encourage chasing losses.
+- Use financial pressure.
+- Use misleading winning claims.
+- Hide restrictions.
+- Use aggressive urgency aimed at vulnerable users.
+
+If any of these issues are present or cannot be checked, mark them `[RISK]` or `[NEEDS CONFIRMATION]` and recommend `crm-sportsbook-rg-compliance-review`.
 
 ## Commercial Guardrails
 
-Protect margin and bonus cost by identifying market-supplied constraints on offer value, minimum odds, minimum stake, maximum bonus value, eligible markets, expiry, and objective fit. If constraints are absent, mark them `[NEEDS CONFIRMATION]`.
+The skill should identify market-context factors that could affect:
+
+- Bonus cost.
+- Margin exposure.
+- Bonus abuse risk.
+- Segment size.
+- Offer affordability.
+- Deposit conversion.
+- Bet conversion.
+- Expected incremental value.
+- Channel cost.
+- Opt-out risk.
+- VIP handling.
+- Sharp or arb-sensitive exposure.
+
+Do not estimate numbers unless the user provides data or explicitly asks for assumptions.
 
 ## Brand & UX Guardrails
 
-Ensure market context supports clear communication: direct wording, no jargon, obvious next action, no misleading terms, no fake personalisation, no stereotypes, and no implication of certain winning.
+The skill should help the CRM team understand:
+
+- Whether the campaign tone needs localisation.
+- Whether the offer can be explained clearly in `[TARGET_CHANNEL]`.
+- Whether the campaign mechanic may be too complex.
+- Whether the wording may feel too aggressive.
+- Whether personalisation may feel invasive.
+- Whether terms and conditions are likely to be too heavy for the selected channel.
+
+Do not stereotype `[TARGET_MARKET]`. Do not claim customer expectations, language style, cultural fit, or promotion norms unless the user provides that context or it is confirmed through research.
 
 ## Assumption Labels
 
+Use these labels consistently:
+
 - `[CONFIRMED]` - Information explicitly provided by the user.
 - `[ASSUMPTION]` - Reasonable but unconfirmed assumption.
-- `[NEEDS CONFIRMATION]` - Important detail that should be checked.
+- `[NEEDS CONFIRMATION]` - Important detail that should be checked before launch.
 - `[RISK]` - Compliance, RG, commercial, UX, or brand risk.
 - `[RECOMMENDATION]` - Proposed action.
 
 ## Output Template
 
+Use this response format when the skill is activated:
+
 ```markdown
-## Market Context Brief
+# Market Context Output
 
-### Confirmed
-- [CONFIRMED] [TARGET_MARKET]:
-- [CONFIRMED] [TARGET_LANGUAGE]:
-- [CONFIRMED] [TARGET_CHANNEL]:
+## 1. Target Market
+- Market: [TARGET_MARKET]
+- Language: [TARGET_LANGUAGE]
+- Channel: [TARGET_CHANNEL]
+- Campaign objective: [CAMPAIGN_OBJECTIVE]
 
-### Assumptions
+## 2. Confirmed Inputs
+- [CONFIRMED]
+
+## 3. Working Assumptions
 - [ASSUMPTION]
 
-### Needs Confirmation
-- [NEEDS CONFIRMATION] [REGULATORY_NOTES]:
-- [NEEDS CONFIRMATION] [T&CS]:
-- [NEEDS CONFIRMATION] Channel eligibility:
+## 4. Needs Confirmation
+- [NEEDS CONFIRMATION]
 
-### Risks
-- [RISK] RG:
-- [RISK] Compliance:
-- [RISK] Commercial:
+## 5. Sportsbook CRM Implications
+- Sport/event relevance:
+- Segment implications:
+- Offer implications:
+- Channel implications:
+- Timing implications:
 
-### Recommendations
-- [RECOMMENDATION] Downstream skill guidance:
+## 6. Channel Considerations
+- [TARGET_CHANNEL]:
+
+## 7. Localisation Considerations
+- [TARGET_LANGUAGE]:
+- [BRAND_TONE]:
+
+## 8. Compliance & RG Considerations
+- [REGULATORY_NOTES]:
+- [RISK]
+
+## 9. Commercial Considerations
+- [RISK]
+- [RECOMMENDATION]
+
+## 10. Recommended Next Skills
+- crm-sportsbook-event-opportunity
+- crm-sportsbook-player-segmentation
+- crm-sportsbook-offer-mechanics
+- crm-sportsbook-campaign-brief
+- crm-sportsbook-rg-compliance-review
+
+## 11. Launch Readiness
+- Ready to proceed with assumptions / Needs confirmation before campaign design / Needs compliance/RG input before campaign design
 ```
 
 ## Example User Request
 
-Use `[TARGET_MARKET]`, `[TARGET_LANGUAGE]`, `[TARGET_CHANNEL]`, `[BRAND_TONE]`, and `[REGULATORY_NOTES]` to prepare context for a sportsbook CRM campaign.
+"Create market context for a sportsbook campaign in `[TARGET_MARKET]`. The campaign objective is `[CAMPAIGN_OBJECTIVE]`, the channel is `[TARGET_CHANNEL]`, and the target segment is `[TARGET_SEGMENT]`."
 
 ## Example Output
 
 ```markdown
-## Market Context Brief
+# Market Context Output
 
-- [CONFIRMED] Market: [TARGET_MARKET]
-- [CONFIRMED] Language: [TARGET_LANGUAGE]
-- [CONFIRMED] Channel: [TARGET_CHANNEL]
-- [NEEDS CONFIRMATION] Approved [T&CS] for [OFFER_MECHANIC].
-- [RISK] Local compliance detail is incomplete until [REGULATORY_NOTES] are supplied.
-- [RECOMMENDATION] Proceed with generic sportsbook structure only; final copy and offer terms require confirmation.
+## 1. Target Market
+- Market: [TARGET_MARKET]
+- Language: [TARGET_LANGUAGE]
+- Channel: [TARGET_CHANNEL]
+- Campaign objective: [CAMPAIGN_OBJECTIVE]
+
+## 2. Confirmed Inputs
+- [CONFIRMED] Target market: [TARGET_MARKET]
+- [CONFIRMED] Campaign objective: [CAMPAIGN_OBJECTIVE]
+- [CONFIRMED] Target channel: [TARGET_CHANNEL]
+- [CONFIRMED] Target segment: [TARGET_SEGMENT]
+
+## 3. Working Assumptions
+- [ASSUMPTION] No local sport preference is assumed until internal betting data, market research, or confirmed research is provided.
+
+## 4. Needs Confirmation
+- [NEEDS CONFIRMATION] [TARGET_LANGUAGE]
+- [NEEDS CONFIRMATION] [TARGET_SPORT]
+- [NEEDS CONFIRMATION] [TARGET_EVENT]
+- [NEEDS CONFIRMATION] [BRAND_TONE]
+- [NEEDS CONFIRMATION] [REGULATORY_NOTES]
+- [NEEDS CONFIRMATION] Channel opt-in, self-exclusion handling, RG-risk suppression, cooling-off handling, and terms and conditions requirements.
+
+## 5. Sportsbook CRM Implications
+- Sport/event relevance: [NEEDS CONFIRMATION] Use `crm-sportsbook-event-opportunity` to assess [TARGET_SPORT] and [TARGET_EVENT] once runtime data is supplied.
+- Segment implications: [RECOMMENDATION] Use `crm-sportsbook-player-segmentation` to validate [TARGET_SEGMENT], channel eligibility, RG exclusions, value bands, bonus sensitivity, and churn risk.
+- Offer implications: [RECOMMENDATION] Use `crm-sportsbook-offer-mechanics` after segment and event context are confirmed.
+- Channel implications: [RECOMMENDATION] Validate whether [TARGET_CHANNEL] has enough engagement and conversion evidence for [TARGET_SEGMENT].
+- Timing implications: [NEEDS CONFIRMATION] Confirm event timing, campaign window, expiry, and frequency-cap rules.
+
+## 6. Channel Considerations
+- [TARGET_CHANNEL]: [RECOMMENDATION] Keep the campaign mechanic simple if the selected channel has limited space or fast interaction behaviour.
+
+## 7. Localisation Considerations
+- [TARGET_LANGUAGE]: [NEEDS CONFIRMATION] Do not assume language or tone.
+- [BRAND_TONE]: [NEEDS CONFIRMATION] Confirm approved style before copy development.
+
+## 8. Compliance & RG Considerations
+- [REGULATORY_NOTES]: [NEEDS CONFIRMATION] Local notes are required before launch claims or final customer-facing copy.
+- [RISK] Do not proceed to launch without confirmed self-exclusion, RG-risk, cooling-off, opt-in, and promotional restriction handling.
+
+## 9. Commercial Considerations
+- [RISK] Bonus cost, margin exposure, bonus abuse risk, and sharp or arb-sensitive exposure cannot be assessed without segment and offer data.
+- [RECOMMENDATION] Confirm expected incremental value before selecting a rich offer.
+
+## 10. Recommended Next Skills
+- crm-sportsbook-event-opportunity
+- crm-sportsbook-player-segmentation
+- crm-sportsbook-offer-mechanics
+- crm-sportsbook-campaign-brief
+- crm-sportsbook-rg-compliance-review
+
+## 11. Launch Readiness
+- Needs confirmation before campaign design.
 ```
-
