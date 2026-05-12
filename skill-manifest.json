@@ -85,12 +85,18 @@
       "id": "crm-sportsbook-player-segmentation",
       "name": "CRM Sportsbook Player Segmentation",
       "path": "skills/crm-sportsbook-player-segmentation/SKILL.md",
-      "purpose": "Defines and evaluates sportsbook CRM player segments by lifecycle, value, activity, sport preference, bet type, VIP status, bonus sensitivity, churn risk, RG flags, sharp or arb sensitivity, and channel eligibility.",
-      "depends_on": ["crm-sportsbook-shared-principles", "crm-sportsbook-market-context"],
+      "purpose": "Defines, evaluates, refines, and safely applies sportsbook CRM player segments by lifecycle, value, sport or event fit, bet type, VIP status, bonus sensitivity, churn risk, RG status, sharp or arb sensitivity, and channel eligibility.",
+      "depends_on": [
+        "crm-sportsbook-shared-principles",
+        "crm-sportsbook-market-context",
+        "crm-sportsbook-event-opportunity"
+      ],
       "feeds_into": [
         "crm-sportsbook-offer-mechanics",
         "crm-sportsbook-campaign-brief",
         "crm-sportsbook-sms-copy",
+        "crm-sportsbook-localisation",
+        "crm-sportsbook-rg-compliance-review",
         "crm-sportsbook-journey-builder",
         "crm-sportsbook-ab-testing",
         "crm-sportsbook-post-campaign-analysis"
