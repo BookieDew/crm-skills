@@ -151,9 +151,12 @@
       "id": "crm-sportsbook-sms-copy",
       "name": "CRM Sportsbook SMS Copy",
       "path": "skills/crm-sportsbook-sms-copy/SKILL.md",
-      "purpose": "Creates concise, compliant sportsbook SMS variants with character counts, copy angle, segment fit, CTA clarity, T&C handling, RG notes, commercial notes, recommended variant, and A/B test suggestion.",
+      "purpose": "Creates short, clear, market-agnostic sportsbook SMS variants with character counts, offer clarity checks, CTA checks, T&C handling, RG safeguards, commercial notes, localisation readiness, and A/B test suggestions.",
       "depends_on": [
         "crm-sportsbook-shared-principles",
+        "crm-sportsbook-market-context",
+        "crm-sportsbook-event-opportunity",
+        "crm-sportsbook-player-segmentation",
         "crm-sportsbook-campaign-brief",
         "crm-sportsbook-offer-mechanics"
       ],
@@ -161,7 +164,8 @@
         "crm-sportsbook-localisation",
         "crm-sportsbook-rg-compliance-review",
         "crm-sportsbook-journey-builder",
-        "crm-sportsbook-ab-testing"
+        "crm-sportsbook-ab-testing",
+        "crm-sportsbook-post-campaign-analysis"
       ],
       "status": "ready"
     },
