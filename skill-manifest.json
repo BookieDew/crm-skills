@@ -259,17 +259,31 @@
       "id": "crm-sportsbook-post-campaign-analysis",
       "name": "CRM Sportsbook Post-Campaign Analysis",
       "path": "skills/crm-sportsbook-post-campaign-analysis/SKILL.md",
-      "purpose": "Analyses campaign performance by segment, offer, channel, bonus cost, GGR/NGR impact, RG observations, learnings, and next campaign recommendations.",
+      "purpose": "Analyses completed sportsbook CRM campaign performance using supplied results, KPI, commercial, journey, variant, control group, and RG/compliance data to produce learnings, recommendations, and feedback into future CRM skills.",
       "depends_on": [
         "crm-sportsbook-shared-principles",
+        "crm-sportsbook-market-context",
+        "crm-sportsbook-event-opportunity",
+        "crm-sportsbook-player-segmentation",
+        "crm-sportsbook-offer-mechanics",
         "crm-sportsbook-campaign-brief",
+        "crm-sportsbook-sms-copy",
+        "crm-sportsbook-localisation",
+        "crm-sportsbook-rg-compliance-review",
+        "crm-sportsbook-journey-builder",
         "crm-sportsbook-ab-testing"
       ],
       "feeds_into": [
         "crm-sportsbook-market-context",
+        "crm-sportsbook-event-opportunity",
         "crm-sportsbook-player-segmentation",
         "crm-sportsbook-offer-mechanics",
-        "crm-sportsbook-campaign-brief"
+        "crm-sportsbook-campaign-brief",
+        "crm-sportsbook-sms-copy",
+        "crm-sportsbook-localisation",
+        "crm-sportsbook-rg-compliance-review",
+        "crm-sportsbook-journey-builder",
+        "crm-sportsbook-ab-testing"
       ],
       "status": "ready"
     }
