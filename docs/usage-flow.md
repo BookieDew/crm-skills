@@ -4,6 +4,11 @@ Use `crm-sportsbook-shared-principles` as the baseline for every workflow. Use `
 
 Not every request needs every skill. Choose the shortest chain that can produce a safe, useful, and properly reviewed output.
 
+## Full vs Light Skills
+Use full skills in `skills/` for complex, high-risk, first-time, ambiguous, or specialist campaign design. Use light skills in `skills-light/` when the same workflow needs a shorter, faster execution version.
+
+Light skills follow the same dependency chain and must preserve market-agnostic design, responsible-gaming rules, compliance checks, suppression logic, commercial controls, channel separation, and sportsbook-specific decision logic.
+
 ## Full Campaign Creation Flow
 1. `crm-sportsbook-market-context`
 2. `crm-sportsbook-event-opportunity`

@@ -1,0 +1,264 @@
+{
+  "name": "sportsbook-crm-skill-pack-light",
+  "version": "1.0.0",
+  "market_agnostic": true,
+  "skills": [
+    {
+      "id": "crm-sportsbook-shared-principles",
+      "name": "CRM Sportsbook Shared Principles Light",
+      "path": "skills-light/crm-sportsbook-shared-principles/SKILL.md",
+      "purpose": "Compact execution reference for market-agnostic rules, assumption labels, responsible-gaming guardrails, suppressions, commercial protection, channel principles, measurement, and campaign quality checks.",
+      "depends_on": [],
+      "feeds_into": [
+        "crm-sportsbook-skill-router",
+        "crm-sportsbook-market-context",
+        "crm-sportsbook-event-opportunity",
+        "crm-sportsbook-player-segmentation",
+        "crm-sportsbook-offer-mechanics",
+        "crm-sportsbook-campaign-brief",
+        "crm-sportsbook-sms-copy",
+        "crm-sportsbook-localisation",
+        "crm-sportsbook-rg-compliance-review",
+        "crm-sportsbook-journey-builder",
+        "crm-sportsbook-ab-testing",
+        "crm-sportsbook-post-campaign-analysis"
+      ],
+      "status": "active-light"
+    },
+    {
+      "id": "crm-sportsbook-skill-router",
+      "name": "CRM Sportsbook Skill Router Light",
+      "path": "skills-light/crm-sportsbook-skill-router/SKILL.md",
+      "purpose": "Compact router for choosing the shortest safe sportsbook CRM skill chain for campaign planning, offer work, SMS copy, localisation, RG/compliance review, journeys, testing, analysis, and improvement.",
+      "depends_on": ["crm-sportsbook-shared-principles"],
+      "feeds_into": [
+        "crm-sportsbook-market-context",
+        "crm-sportsbook-event-opportunity",
+        "crm-sportsbook-player-segmentation",
+        "crm-sportsbook-offer-mechanics",
+        "crm-sportsbook-campaign-brief",
+        "crm-sportsbook-sms-copy",
+        "crm-sportsbook-localisation",
+        "crm-sportsbook-rg-compliance-review",
+        "crm-sportsbook-journey-builder",
+        "crm-sportsbook-ab-testing",
+        "crm-sportsbook-post-campaign-analysis"
+      ],
+      "status": "active-light"
+    },
+    {
+      "id": "crm-sportsbook-market-context",
+      "name": "CRM Sportsbook Market Context Light",
+      "path": "skills-light/crm-sportsbook-market-context/SKILL.md",
+      "purpose": "Compact execution version for structuring runtime market, language, channel, regulatory, brand, calendar, and operational context without inventing market facts.",
+      "depends_on": ["crm-sportsbook-shared-principles", "crm-sportsbook-skill-router"],
+      "feeds_into": [
+        "crm-sportsbook-event-opportunity",
+        "crm-sportsbook-player-segmentation",
+        "crm-sportsbook-offer-mechanics",
+        "crm-sportsbook-campaign-brief",
+        "crm-sportsbook-localisation",
+        "crm-sportsbook-sms-copy",
+        "crm-sportsbook-rg-compliance-review"
+      ],
+      "status": "active-light"
+    },
+    {
+      "id": "crm-sportsbook-event-opportunity",
+      "name": "CRM Sportsbook Event Opportunity Light",
+      "path": "skills-light/crm-sportsbook-event-opportunity/SKILL.md",
+      "purpose": "Compact execution version for evaluating runtime-supplied sports, events, calendar moments, lifecycle moments, and betting moments for sportsbook CRM opportunity.",
+      "depends_on": ["crm-sportsbook-shared-principles", "crm-sportsbook-market-context"],
+      "feeds_into": [
+        "crm-sportsbook-player-segmentation",
+        "crm-sportsbook-offer-mechanics",
+        "crm-sportsbook-campaign-brief",
+        "crm-sportsbook-sms-copy",
+        "crm-sportsbook-localisation",
+        "crm-sportsbook-rg-compliance-review",
+        "crm-sportsbook-journey-builder",
+        "crm-sportsbook-ab-testing"
+      ],
+      "status": "active-light"
+    },
+    {
+      "id": "crm-sportsbook-player-segmentation",
+      "name": "CRM Sportsbook Player Segmentation Light",
+      "path": "skills-light/crm-sportsbook-player-segmentation/SKILL.md",
+      "purpose": "Compact execution version for defining, evaluating, refining, and safely applying sportsbook CRM player segments by lifecycle, value, behaviour, risk, consent, eligibility, and commercial fit.",
+      "depends_on": [
+        "crm-sportsbook-shared-principles",
+        "crm-sportsbook-market-context",
+        "crm-sportsbook-event-opportunity"
+      ],
+      "feeds_into": [
+        "crm-sportsbook-offer-mechanics",
+        "crm-sportsbook-campaign-brief",
+        "crm-sportsbook-sms-copy",
+        "crm-sportsbook-localisation",
+        "crm-sportsbook-rg-compliance-review",
+        "crm-sportsbook-journey-builder",
+        "crm-sportsbook-ab-testing",
+        "crm-sportsbook-post-campaign-analysis"
+      ],
+      "status": "active-light"
+    },
+    {
+      "id": "crm-sportsbook-offer-mechanics",
+      "name": "CRM Sportsbook Offer Mechanics Light",
+      "path": "skills-light/crm-sportsbook-offer-mechanics/SKILL.md",
+      "purpose": "Compact execution version for designing and evaluating sportsbook offer mechanics with segment fit, channel suitability, exposure controls, RG safeguards, and clear constraints.",
+      "depends_on": [
+        "crm-sportsbook-shared-principles",
+        "crm-sportsbook-market-context",
+        "crm-sportsbook-event-opportunity",
+        "crm-sportsbook-player-segmentation"
+      ],
+      "feeds_into": [
+        "crm-sportsbook-campaign-brief",
+        "crm-sportsbook-sms-copy",
+        "crm-sportsbook-localisation",
+        "crm-sportsbook-rg-compliance-review",
+        "crm-sportsbook-journey-builder",
+        "crm-sportsbook-ab-testing",
+        "crm-sportsbook-post-campaign-analysis"
+      ],
+      "status": "active-light"
+    },
+    {
+      "id": "crm-sportsbook-campaign-brief",
+      "name": "CRM Sportsbook Campaign Brief Light",
+      "path": "skills-light/crm-sportsbook-campaign-brief/SKILL.md",
+      "purpose": "Compact execution version for synthesising market context, event opportunity, segmentation, offer, channel, exclusions, compliance notes, commercial logic, testing, and metrics into a campaign blueprint.",
+      "depends_on": [
+        "crm-sportsbook-shared-principles",
+        "crm-sportsbook-market-context",
+        "crm-sportsbook-event-opportunity",
+        "crm-sportsbook-player-segmentation",
+        "crm-sportsbook-offer-mechanics"
+      ],
+      "feeds_into": [
+        "crm-sportsbook-sms-copy",
+        "crm-sportsbook-localisation",
+        "crm-sportsbook-rg-compliance-review",
+        "crm-sportsbook-journey-builder",
+        "crm-sportsbook-ab-testing",
+        "crm-sportsbook-post-campaign-analysis"
+      ],
+      "status": "active-light"
+    },
+    {
+      "id": "crm-sportsbook-sms-copy",
+      "name": "CRM Sportsbook SMS Copy Light",
+      "path": "skills-light/crm-sportsbook-sms-copy/SKILL.md",
+      "purpose": "Compact execution version for creating short, clear, market-agnostic sportsbook SMS variants with character counts, T&C handling, offer clarity, CTA clarity, RG safeguards, commercial notes, localisation readiness, and A/B test suggestions.",
+      "depends_on": [
+        "crm-sportsbook-shared-principles",
+        "crm-sportsbook-campaign-brief",
+        "crm-sportsbook-offer-mechanics"
+      ],
+      "feeds_into": [
+        "crm-sportsbook-localisation",
+        "crm-sportsbook-rg-compliance-review",
+        "crm-sportsbook-journey-builder",
+        "crm-sportsbook-ab-testing",
+        "crm-sportsbook-post-campaign-analysis"
+      ],
+      "status": "active-light"
+    },
+    {
+      "id": "crm-sportsbook-localisation",
+      "name": "CRM Sportsbook Localisation Light",
+      "path": "skills-light/crm-sportsbook-localisation/SKILL.md",
+      "purpose": "Compact execution version for adapting supplied sportsbook CRM campaign logic and copy to runtime-supplied market, language, channel, brand tone, approved terms, forbidden terms, and regulatory notes without inventing local facts.",
+      "depends_on": [
+        "crm-sportsbook-shared-principles",
+        "crm-sportsbook-campaign-brief",
+        "crm-sportsbook-sms-copy"
+      ],
+      "feeds_into": [
+        "crm-sportsbook-rg-compliance-review",
+        "crm-sportsbook-journey-builder",
+        "crm-sportsbook-ab-testing",
+        "crm-sportsbook-post-campaign-analysis"
+      ],
+      "status": "active-light"
+    },
+    {
+      "id": "crm-sportsbook-rg-compliance-review",
+      "name": "CRM Sportsbook Responsible Gaming & Compliance Review Light",
+      "path": "skills-light/crm-sportsbook-rg-compliance-review/SKILL.md",
+      "purpose": "Compact execution version for structured pre-launch review of sportsbook CRM campaigns, offers, segments, copy, journeys, localisation, suppressions, T&Cs, commercial exposure, UX, brand, and operational risks.",
+      "depends_on": [
+        "crm-sportsbook-shared-principles",
+        "crm-sportsbook-offer-mechanics",
+        "crm-sportsbook-campaign-brief",
+        "crm-sportsbook-sms-copy",
+        "crm-sportsbook-localisation"
+      ],
+      "feeds_into": [
+        "crm-sportsbook-journey-builder",
+        "crm-sportsbook-ab-testing",
+        "crm-sportsbook-post-campaign-analysis"
+      ],
+      "status": "active-light"
+    },
+    {
+      "id": "crm-sportsbook-journey-builder",
+      "name": "CRM Sportsbook Journey Builder Light",
+      "path": "skills-light/crm-sportsbook-journey-builder/SKILL.md",
+      "purpose": "Compact execution version for turning campaign strategy, copy, offers, segments, localisation, and RG/compliance review into operational CRM journey logic with triggers, steps, suppressions, exits, caps, controls, measurement, and fallback rules.",
+      "depends_on": [
+        "crm-sportsbook-shared-principles",
+        "crm-sportsbook-campaign-brief",
+        "crm-sportsbook-sms-copy",
+        "crm-sportsbook-localisation",
+        "crm-sportsbook-rg-compliance-review"
+      ],
+      "feeds_into": [
+        "crm-sportsbook-ab-testing",
+        "crm-sportsbook-post-campaign-analysis"
+      ],
+      "status": "active-light"
+    },
+    {
+      "id": "crm-sportsbook-ab-testing",
+      "name": "CRM Sportsbook A/B Testing Light",
+      "path": "skills-light/crm-sportsbook-ab-testing/SKILL.md",
+      "purpose": "Compact execution version for safe, measurable sportsbook CRM tests with hypotheses, variants, audience splits, control groups, KPIs, guardrails, measurement windows, decision rules, suppressions, commercial controls, and analysis handoff.",
+      "depends_on": [
+        "crm-sportsbook-shared-principles",
+        "crm-sportsbook-campaign-brief",
+        "crm-sportsbook-rg-compliance-review",
+        "crm-sportsbook-journey-builder"
+      ],
+      "feeds_into": ["crm-sportsbook-post-campaign-analysis"],
+      "status": "active-light"
+    },
+    {
+      "id": "crm-sportsbook-post-campaign-analysis",
+      "name": "CRM Sportsbook Post-Campaign Analysis Light",
+      "path": "skills-light/crm-sportsbook-post-campaign-analysis/SKILL.md",
+      "purpose": "Compact execution version for analysing supplied sportsbook CRM campaign results, variants, journeys, commercial outcomes, and RG/compliance observations to produce learnings and future skill feedback without inventing data or causality.",
+      "depends_on": [
+        "crm-sportsbook-shared-principles",
+        "crm-sportsbook-campaign-brief",
+        "crm-sportsbook-journey-builder",
+        "crm-sportsbook-ab-testing"
+      ],
+      "feeds_into": [
+        "crm-sportsbook-market-context",
+        "crm-sportsbook-event-opportunity",
+        "crm-sportsbook-player-segmentation",
+        "crm-sportsbook-offer-mechanics",
+        "crm-sportsbook-campaign-brief",
+        "crm-sportsbook-sms-copy",
+        "crm-sportsbook-localisation",
+        "crm-sportsbook-rg-compliance-review",
+        "crm-sportsbook-journey-builder",
+        "crm-sportsbook-ab-testing"
+      ],
+      "status": "active-light"
+    }
+  ]
+}

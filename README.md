@@ -89,6 +89,11 @@ Standard full campaign flow:
 
 Not every request needs every skill. Use `crm-sportsbook-skill-router` when the required chain is unclear.
 
+## Light Skill Versions
+Full skills in `skills/` are the detailed production and reference versions. Light skills in `skills-light/` are compact execution versions with the same skill purposes, guardrails, dependencies, and output structures.
+
+Use light skills when speed and shorter context are preferred. Use full skills for complex, high-risk, first-time, ambiguous, or specialist campaign design. Light skills must not weaken market-agnostic, responsible-gaming, compliance, commercial, channel, brand, UX, or sportsbook-specific guardrails.
+
 ## Common Workflows
 
 ### Full Campaign Creation
