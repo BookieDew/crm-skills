@@ -173,16 +173,21 @@
       "id": "crm-sportsbook-localisation",
       "name": "CRM Sportsbook Localisation",
       "path": "skills/crm-sportsbook-localisation/SKILL.md",
-      "purpose": "Adapts campaign logic and copy to runtime-supplied target market, target language, brand tone, local style, and regulatory notes without inventing local facts.",
+      "purpose": "Localises sportsbook CRM campaign logic, offer framing, and customer-facing copy using runtime-supplied target market, target language, channel, brand tone, localisation notes, approved terms, forbidden terms, and regulatory notes without inventing local facts.",
       "depends_on": [
         "crm-sportsbook-shared-principles",
         "crm-sportsbook-market-context",
-        "crm-sportsbook-campaign-brief"
+        "crm-sportsbook-event-opportunity",
+        "crm-sportsbook-player-segmentation",
+        "crm-sportsbook-offer-mechanics",
+        "crm-sportsbook-campaign-brief",
+        "crm-sportsbook-sms-copy"
       ],
       "feeds_into": [
-        "crm-sportsbook-sms-copy",
         "crm-sportsbook-rg-compliance-review",
-        "crm-sportsbook-journey-builder"
+        "crm-sportsbook-journey-builder",
+        "crm-sportsbook-ab-testing",
+        "crm-sportsbook-post-campaign-analysis"
       ],
       "status": "ready"
     },
