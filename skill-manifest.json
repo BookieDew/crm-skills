@@ -193,18 +193,23 @@
     },
     {
       "id": "crm-sportsbook-rg-compliance-review",
-      "name": "CRM Sportsbook RG Compliance Review",
+      "name": "CRM Sportsbook Responsible Gaming & Compliance Review",
       "path": "skills/crm-sportsbook-rg-compliance-review/SKILL.md",
-      "purpose": "Reviews campaigns, offers, journeys, and copy for responsible-gaming, compliance, UX, brand, and commercial risk with launch recommendation.",
+      "purpose": "Reviews sportsbook CRM campaigns, offers, customer segments, copy, journeys, and localisation outputs for responsible-gaming, compliance, commercial, UX, brand, suppression, T&C, and operational risk before launch.",
       "depends_on": [
         "crm-sportsbook-shared-principles",
-        "crm-sportsbook-market-context"
-      ],
-      "feeds_into": [
+        "crm-sportsbook-market-context",
+        "crm-sportsbook-event-opportunity",
+        "crm-sportsbook-player-segmentation",
+        "crm-sportsbook-offer-mechanics",
         "crm-sportsbook-campaign-brief",
         "crm-sportsbook-sms-copy",
+        "crm-sportsbook-localisation"
+      ],
+      "feeds_into": [
         "crm-sportsbook-journey-builder",
-        "crm-sportsbook-ab-testing"
+        "crm-sportsbook-ab-testing",
+        "crm-sportsbook-post-campaign-analysis"
       ],
       "status": "ready"
     },
