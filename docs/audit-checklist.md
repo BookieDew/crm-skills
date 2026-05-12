@@ -3,40 +3,106 @@
 Run this checklist after creating or changing any file in the skill pack.
 
 ## Market-Agnostic Audit
+Check:
+- No hardcoded countries
+- No hardcoded regions
+- No hardcoded local languages
+- No hardcoded local leagues
+- No hardcoded teams
+- No hardcoded operators
+- No hardcoded regulators
+- No hardcoded local regulations
+- No hardcoded payment methods
+- No hardcoded cultural assumptions
+- Examples use placeholders only
 
-- No hardcoded market references.
-- No specific countries or regions.
-- No specific local languages.
-- No specific local leagues.
-- No specific local payment methods.
-- No specific operators.
-- No invented regulation.
-- No invented current fixtures, live events, or local sports calendars.
-- All market-specific items use placeholders or labelled assumptions.
+## Skill Architecture Audit
+Check:
+- Every skill has clear purpose
+- Every skill has clear role in the skill pack
+- Every skill has when to use / when not to use
+- Every skill has required inputs
+- Every skill has workflow
+- Every skill has decision logic
+- Every skill has dependencies
+- Every skill has output template
+- Every skill references shared principles
+- Dependencies in skill files match `skill-manifest.json`
 
-## Skill Structure Audit
+## Sportsbook Specificity Audit
+Check that the pack includes sportsbook-specific treatment of:
+- Sports/events
+- Pre-match vs live betting
+- Singles vs accumulators
+- Bet builder
+- Odds boosts
+- Free bets
+- Cashback
+- Deposit/reload offers
+- VIPs
+- Bonus-sensitive users
+- Sharp/arb-sensitive users
+- Bonus abuse
+- Margin protection
+- Minimum odds
+- Minimum stake
+- Max bonus value
+- Eligible markets
+- GGR/NGR/bonus cost
 
-- Every skill has `SKILL.md`.
-- Every `SKILL.md` includes purpose, role, when to use, when not to use, required inputs, output, workflow, decision logic, dependencies, sportsbook considerations, market-agnostic rules, channel-aware rules, RG and compliance guardrails, commercial guardrails, brand and UX guardrails, assumption labels, output template, example request, and example output.
-- `crm-sportsbook-shared-principles` remains the source of truth.
-- Dependencies are coherent.
-- Shared principles are referenced by every skill.
-- `skill-manifest.json` is valid JSON and lists every skill.
+## Responsible-Gaming Audit
+Check:
+- Self-excluded users suppressed
+- RG-risk users suppressed
+- Cooling-off users suppressed
+- Opt-in required
+- No chasing losses
+- No financial-solution framing
+- No guaranteed-win claims
+- No unapproved risk-free wording
+- No manipulative reactivation
+- No excessive urgency
+- T&Cs visible
+- RG review before launch
 
-## Capability Audit
+## Channel Audit
+Check:
+- SMS skill is SMS-specific
+- Email and push are future skills, not mixed into SMS
+- SMS includes character count logic
+- SMS requires T&C handling
+- SMS avoids complex mechanics
+- Channel opt-in is checked
 
-- SMS skill is fully developed and remains SMS-specific.
-- RG/compliance review produces `Pass`, `Needs Revision`, or `Do Not Launch`.
-- Offer mechanics are sportsbook-specific and commercially constrained.
-- Campaign brief supports end-to-end campaign creation.
-- Journey builder includes suppression, exits, control group, frequency caps, and RG-safe reactivation.
-- A/B testing includes hypothesis, variants, KPIs, split, control, measurement window, risk controls, and decision rule.
-- Post-campaign analysis includes segment, offer, channel, bonus cost, GGR/NGR, RG observations, learnings, and recommendations.
+## Commercial Audit
+Check:
+- Bonus cost controlled
+- Max bonus defined where relevant
+- Minimum odds considered
+- Minimum stake considered
+- Eligible markets considered
+- Sharp/arb exposure considered
+- Bonus abuse considered
+- VIP exposure controlled
+- Incrementality considered
+- NGR/GGR/bonus cost considered
 
-## Git-Ready Audit
+## Output Quality Audit
+Check:
+- Output templates are practical
+- Examples are placeholder-only
+- Assumption labels are used
+- Missing inputs are handled
+- Launch readiness is clear
+- Recommended next skills are clear
 
-- Folder structure matches the requested layout.
-- Files are readable Markdown or valid JSON.
-- No temporary files are committed.
-- No generated local audit output is required unless intentionally added.
-
+## Final Repo Audit
+Check:
+- README is accurate
+- AGENTS.md is clear
+- Manifest is valid JSON
+- Docs align with actual skills
+- No stale references
+- No missing skill paths
+- No future skills described as existing
+- Suggested commit message included

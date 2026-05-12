@@ -23,7 +23,7 @@
         "crm-sportsbook-ab-testing",
         "crm-sportsbook-post-campaign-analysis"
       ],
-      "status": "ready"
+      "status": "active"
     },
     {
       "id": "crm-sportsbook-skill-router",
@@ -44,14 +44,14 @@
         "crm-sportsbook-ab-testing",
         "crm-sportsbook-post-campaign-analysis"
       ],
-      "status": "ready"
+      "status": "active"
     },
     {
       "id": "crm-sportsbook-market-context",
       "name": "CRM Sportsbook Market Context",
       "path": "skills/crm-sportsbook-market-context/SKILL.md",
       "purpose": "Structures runtime market, language, channel, regulatory, brand, calendar, and operational context without inventing market facts.",
-      "depends_on": ["crm-sportsbook-shared-principles"],
+      "depends_on": ["crm-sportsbook-shared-principles", "crm-sportsbook-skill-router"],
       "feeds_into": [
         "crm-sportsbook-event-opportunity",
         "crm-sportsbook-player-segmentation",
@@ -61,7 +61,7 @@
         "crm-sportsbook-sms-copy",
         "crm-sportsbook-rg-compliance-review"
       ],
-      "status": "ready"
+      "status": "active"
     },
     {
       "id": "crm-sportsbook-event-opportunity",
@@ -79,7 +79,7 @@
         "crm-sportsbook-journey-builder",
         "crm-sportsbook-ab-testing"
       ],
-      "status": "ready"
+      "status": "active"
     },
     {
       "id": "crm-sportsbook-player-segmentation",
@@ -101,7 +101,7 @@
         "crm-sportsbook-ab-testing",
         "crm-sportsbook-post-campaign-analysis"
       ],
-      "status": "ready"
+      "status": "active"
     },
     {
       "id": "crm-sportsbook-offer-mechanics",
@@ -123,7 +123,7 @@
         "crm-sportsbook-ab-testing",
         "crm-sportsbook-post-campaign-analysis"
       ],
-      "status": "ready"
+      "status": "active"
     },
     {
       "id": "crm-sportsbook-campaign-brief",
@@ -145,7 +145,7 @@
         "crm-sportsbook-ab-testing",
         "crm-sportsbook-post-campaign-analysis"
       ],
-      "status": "ready"
+      "status": "active"
     },
     {
       "id": "crm-sportsbook-sms-copy",
@@ -154,9 +154,6 @@
       "purpose": "Creates short, clear, market-agnostic sportsbook SMS variants with character counts, offer clarity checks, CTA checks, T&C handling, RG safeguards, commercial notes, localisation readiness, and A/B test suggestions.",
       "depends_on": [
         "crm-sportsbook-shared-principles",
-        "crm-sportsbook-market-context",
-        "crm-sportsbook-event-opportunity",
-        "crm-sportsbook-player-segmentation",
         "crm-sportsbook-campaign-brief",
         "crm-sportsbook-offer-mechanics"
       ],
@@ -167,7 +164,7 @@
         "crm-sportsbook-ab-testing",
         "crm-sportsbook-post-campaign-analysis"
       ],
-      "status": "ready"
+      "status": "active"
     },
     {
       "id": "crm-sportsbook-localisation",
@@ -176,10 +173,6 @@
       "purpose": "Localises sportsbook CRM campaign logic, offer framing, and customer-facing copy using runtime-supplied target market, target language, channel, brand tone, localisation notes, approved terms, forbidden terms, and regulatory notes without inventing local facts.",
       "depends_on": [
         "crm-sportsbook-shared-principles",
-        "crm-sportsbook-market-context",
-        "crm-sportsbook-event-opportunity",
-        "crm-sportsbook-player-segmentation",
-        "crm-sportsbook-offer-mechanics",
         "crm-sportsbook-campaign-brief",
         "crm-sportsbook-sms-copy"
       ],
@@ -189,7 +182,7 @@
         "crm-sportsbook-ab-testing",
         "crm-sportsbook-post-campaign-analysis"
       ],
-      "status": "ready"
+      "status": "active"
     },
     {
       "id": "crm-sportsbook-rg-compliance-review",
@@ -198,9 +191,6 @@
       "purpose": "Reviews sportsbook CRM campaigns, offers, customer segments, copy, journeys, and localisation outputs for responsible-gaming, compliance, commercial, UX, brand, suppression, T&C, and operational risk before launch.",
       "depends_on": [
         "crm-sportsbook-shared-principles",
-        "crm-sportsbook-market-context",
-        "crm-sportsbook-event-opportunity",
-        "crm-sportsbook-player-segmentation",
         "crm-sportsbook-offer-mechanics",
         "crm-sportsbook-campaign-brief",
         "crm-sportsbook-sms-copy",
@@ -211,7 +201,7 @@
         "crm-sportsbook-ab-testing",
         "crm-sportsbook-post-campaign-analysis"
       ],
-      "status": "ready"
+      "status": "active"
     },
     {
       "id": "crm-sportsbook-journey-builder",
@@ -220,10 +210,6 @@
       "purpose": "Turns sportsbook CRM campaign briefs, offers, segments, SMS copy, localisation outputs, and RG/compliance reviews into operational journeys with triggers, entry rules, steps, timing, suppressions, exits, frequency caps, control groups, measurement, and fallback logic.",
       "depends_on": [
         "crm-sportsbook-shared-principles",
-        "crm-sportsbook-market-context",
-        "crm-sportsbook-event-opportunity",
-        "crm-sportsbook-player-segmentation",
-        "crm-sportsbook-offer-mechanics",
         "crm-sportsbook-campaign-brief",
         "crm-sportsbook-sms-copy",
         "crm-sportsbook-localisation",
@@ -233,7 +219,7 @@
         "crm-sportsbook-ab-testing",
         "crm-sportsbook-post-campaign-analysis"
       ],
-      "status": "ready"
+      "status": "active"
     },
     {
       "id": "crm-sportsbook-ab-testing",
@@ -242,18 +228,12 @@
       "purpose": "Designs safe, measurable sportsbook CRM A/B tests and simple experiment plans with hypotheses, variants, audience splits, controls, KPIs, guardrails, measurement windows, decision rules, suppression logic, commercial risk controls, and post-campaign analysis handoff.",
       "depends_on": [
         "crm-sportsbook-shared-principles",
-        "crm-sportsbook-market-context",
-        "crm-sportsbook-event-opportunity",
-        "crm-sportsbook-player-segmentation",
-        "crm-sportsbook-offer-mechanics",
         "crm-sportsbook-campaign-brief",
-        "crm-sportsbook-sms-copy",
-        "crm-sportsbook-localisation",
         "crm-sportsbook-rg-compliance-review",
         "crm-sportsbook-journey-builder"
       ],
       "feeds_into": ["crm-sportsbook-post-campaign-analysis"],
-      "status": "ready"
+      "status": "active"
     },
     {
       "id": "crm-sportsbook-post-campaign-analysis",
@@ -262,14 +242,7 @@
       "purpose": "Analyses completed sportsbook CRM campaign performance using supplied results, KPI, commercial, journey, variant, control group, and RG/compliance data to produce learnings, recommendations, and feedback into future CRM skills.",
       "depends_on": [
         "crm-sportsbook-shared-principles",
-        "crm-sportsbook-market-context",
-        "crm-sportsbook-event-opportunity",
-        "crm-sportsbook-player-segmentation",
-        "crm-sportsbook-offer-mechanics",
         "crm-sportsbook-campaign-brief",
-        "crm-sportsbook-sms-copy",
-        "crm-sportsbook-localisation",
-        "crm-sportsbook-rg-compliance-review",
         "crm-sportsbook-journey-builder",
         "crm-sportsbook-ab-testing"
       ],
@@ -285,7 +258,7 @@
         "crm-sportsbook-journey-builder",
         "crm-sportsbook-ab-testing"
       ],
-      "status": "ready"
+      "status": "active"
     }
   ]
 }

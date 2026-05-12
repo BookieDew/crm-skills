@@ -1,47 +1,62 @@
 # Market-Agnostic Rules
 
-The permanent skill files must remain market-agnostic. The AI must not invent or hardcode any market fact.
+## Core Rule
+No skill or documentation should permanently assume a specific market.
+
+The target market must be supplied at runtime.
 
 ## Do Not Hardcode
+Do not hardcode:
+- Countries
+- Regions
+- Local languages
+- Local leagues
+- Local teams
+- Local tournaments
+- Local operators
+- Local regulators
+- Local laws
+- Local payment methods
+- Local holidays
+- Local sport preferences
+- Local betting habits
+- Local channel preferences
+- Local slang
+- Local cultural behaviour
+- Local competitor examples
 
-- Specific countries.
-- Specific regions.
-- Specific languages.
-- Specific local leagues.
-- Specific local sports preferences.
-- Specific operators.
-- Specific local regulations.
-- Specific local payment methods.
-- Geo-specific behaviour.
-- Current fixtures or live sports calendars.
-- Cultural assumptions.
+## Use Placeholders
+Use:
+- [TARGET_MARKET]
+- [TARGET_LANGUAGE]
+- [TARGET_CHANNEL]
+- [TARGET_SEGMENT]
+- [TARGET_SPORT]
+- [TARGET_EVENT]
+- [TARGET_TOURNAMENT]
+- [TARGET_FIXTURE]
+- [CAMPAIGN_OBJECTIVE]
+- [OFFER_MECHANIC]
+- [OFFER_VALUE]
+- [REGULATORY_NOTES]
+- [BRAND_TONE]
+- [T&CS]
+- [T&CS_LINK]
 
-## Required Placeholder Pattern
+## Market Fact Handling
+If a market-specific detail is needed:
+1. Ask the user.
+2. Use provided internal data.
+3. Use confirmed research if available.
+4. Mark as [NEEDS CONFIRMATION].
+5. Use [ASSUMPTION] only if clearly labelled.
 
-Use runtime placeholders such as:
+## Examples Must Be Placeholder-Only
+All examples in skill files and docs must use placeholders only.
 
-- `[TARGET_MARKET]`
-- `[TARGET_LANGUAGE]`
-- `[TARGET_CHANNEL]`
-- `[TARGET_SEGMENT]`
-- `[TARGET_EVENT]`
-- `[TARGET_SPORT]`
-- `[OFFER_MECHANIC]`
-- `[OFFER_VALUE]`
-- `[BRAND_TONE]`
-- `[T&CS]`
-- `[REGULATORY_NOTES]`
+Do not include real country, region, language, league, tournament, team, operator, payment method, regulation, regulator, slang, or cultural references in permanent examples.
 
-## Handling Missing Detail
+## Compliance Caveat
+No skill should claim local compliance unless local regulatory notes or approved research are supplied.
 
-When market-specific detail is needed:
-
-- Ask the user for the missing input.
-- Mark the point `[NEEDS CONFIRMATION]`.
-- State any provisional logic as `[ASSUMPTION]`.
-- Research it only when research tools are available and the task allows research.
-
-## Allowed Generic Sportsbook Concepts
-
-The skills may discuss generic sportsbook CRM concepts such as pre-match betting, live betting, single bets, accumulator preference, bet builder suitability, free bets, odds boosts, cashback, bonus sensitivity, stake level, churn risk, VIP status, margin protection, and bonus abuse risk.
-
+Use [REGULATORY_NOTES] for runtime compliance context. If [REGULATORY_NOTES] are missing, mark compliance conclusions as [NEEDS CONFIRMATION].

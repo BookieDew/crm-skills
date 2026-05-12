@@ -1,64 +1,177 @@
-# Sportsbook CRM Skill Pack
+# CRM Sportsbook Skill Pack
 
-This repository contains a market-agnostic AI skill pack for sportsbook CRM teams. It helps CRM managers create personalised sportsbook campaigns, offers, SMS copy, localisation guidance, campaign briefs, A/B tests, customer journeys, and post-campaign analysis.
+## Overview
+This repository contains a market-agnostic AI skill pack for sportsbook CRM teams.
 
-The pack is designed for CRM, lifecycle, retention, VIP, trading-adjacent marketing, localisation, and compliance-review workflows where the target market is supplied at runtime.
+It helps with:
+- Market context
+- Event opportunity planning
+- Player segmentation
+- Offer mechanics
+- Campaign briefs
+- SMS copy
+- Localisation
+- Responsible-gaming and compliance pre-review
+- Journey building
+- A/B testing
+- Post-campaign analysis
 
-## How to Use
+The pack is designed to help teams move from runtime campaign context to execution-ready CRM outputs while preserving responsible-gaming, commercial, UX, and market-agnostic guardrails.
 
-Start with `skills/crm-sportsbook-skill-router/SKILL.md` when the request is broad or ambiguous. The router selects the right skill chain and identifies missing runtime inputs.
+## Who This Is For
+This pack is for:
+- CRM managers
+- CRM operators
+- Sportsbook product teams
+- Lifecycle marketers
+- Local market managers
+- BI / analytics teams
+- Risk / trading stakeholders
+- Compliance / responsible-gaming reviewers
 
-Recommended full campaign flow:
+## Core Principle
+The skill pack must remain market-agnostic.
 
-1. `crm-sportsbook-shared-principles`
-2. `crm-sportsbook-skill-router`
-3. `crm-sportsbook-market-context`
-4. `crm-sportsbook-event-opportunity`
-5. `crm-sportsbook-player-segmentation`
-6. `crm-sportsbook-offer-mechanics`
-7. `crm-sportsbook-campaign-brief`
-8. `crm-sportsbook-sms-copy` when `[TARGET_CHANNEL]` is SMS
-9. `crm-sportsbook-localisation`
-10. `crm-sportsbook-rg-compliance-review`
-11. `crm-sportsbook-journey-builder`
-12. `crm-sportsbook-ab-testing`
-13. `crm-sportsbook-post-campaign-analysis`
+No permanent skill or documentation should hardcode a specific country, region, language, local league, local payment method, operator, regulation, or cultural behaviour.
 
-For narrower tasks, use the specific skill directly. For example, use `crm-sportsbook-sms-copy` for SMS-only copy, `crm-sportsbook-offer-mechanics` for offer design, and `crm-sportsbook-rg-compliance-review` before launch.
+The target market must always be supplied at runtime by the user or marked as needing confirmation.
 
-## Market-Agnostic Principle
+Use placeholders such as:
+- [TARGET_MARKET]
+- [TARGET_LANGUAGE]
+- [TARGET_CHANNEL]
+- [TARGET_SEGMENT]
+- [TARGET_SPORT]
+- [TARGET_EVENT]
+- [TARGET_TOURNAMENT]
+- [TARGET_FIXTURE]
+- [CAMPAIGN_OBJECTIVE]
+- [OFFER_MECHANIC]
+- [OFFER_VALUE]
+- [BRAND_TONE]
+- [REGULATORY_NOTES]
+- [T&CS]
+- [T&CS_LINK]
 
-The permanent skill files must not hardcode any specific country, region, language, local league, local sport preference, operator, local regulation, local payment method, or geo-specific behaviour.
+## Skill List
+| Skill ID | Folder path | Purpose | Usually runs after | Usually feeds into |
+|---|---|---|---|---|
+| `crm-sportsbook-shared-principles` | `skills/crm-sportsbook-shared-principles/SKILL.md` | Defines shared market-agnostic, RG, commercial, channel, measurement, and assumption-label rules. | None | All other skills |
+| `crm-sportsbook-skill-router` | `skills/crm-sportsbook-skill-router/SKILL.md` | Routes CRM requests to the right skill or skill chain. | Shared principles | Specialist skills |
+| `crm-sportsbook-market-context` | `skills/crm-sportsbook-market-context/SKILL.md` | Structures runtime market, language, channel, regulatory, brand, and operational context. | Shared principles, router | Event opportunity, segmentation, offer mechanics, campaign brief, localisation, SMS copy, RG/compliance review |
+| `crm-sportsbook-event-opportunity` | `skills/crm-sportsbook-event-opportunity/SKILL.md` | Evaluates supplied sports, events, fixtures, tournaments, and calendar moments for CRM opportunity. | Market context | Segmentation, offer mechanics, campaign brief, SMS copy, localisation, journey builder, A/B testing |
+| `crm-sportsbook-player-segmentation` | `skills/crm-sportsbook-player-segmentation/SKILL.md` | Defines and evaluates sportsbook CRM player segments using lifecycle, value, behaviour, risk, and eligibility context. | Market context, event opportunity | Offer mechanics, campaign brief, SMS copy, localisation, RG/compliance review, journey builder, A/B testing |
+| `crm-sportsbook-offer-mechanics` | `skills/crm-sportsbook-offer-mechanics/SKILL.md` | Designs and evaluates sportsbook offer mechanics with segment fit, exposure controls, and RG safeguards. | Market context, event opportunity, player segmentation | Campaign brief, SMS copy, localisation, RG/compliance review, journey builder, A/B testing |
+| `crm-sportsbook-campaign-brief` | `skills/crm-sportsbook-campaign-brief/SKILL.md` | Synthesises campaign context, segment, offer, channel, commercial logic, measurement, and guardrails into a campaign blueprint. | Market context, event opportunity, player segmentation, offer mechanics | SMS copy, localisation, RG/compliance review, journey builder, A/B testing, post-campaign analysis |
+| `crm-sportsbook-sms-copy` | `skills/crm-sportsbook-sms-copy/SKILL.md` | Creates short, clear, responsible-gaming-aware SMS copy variants with offer, CTA, T&C, and character-count checks. | Campaign brief, offer mechanics | Localisation, RG/compliance review, journey builder, A/B testing, post-campaign analysis |
+| `crm-sportsbook-localisation` | `skills/crm-sportsbook-localisation/SKILL.md` | Adapts supplied campaign logic and customer-facing copy to supplied market, language, channel, and brand context. | Campaign brief, SMS copy, offer mechanics, market context | RG/compliance review, journey builder, A/B testing, post-campaign analysis |
+| `crm-sportsbook-rg-compliance-review` | `skills/crm-sportsbook-rg-compliance-review/SKILL.md` | Performs structured pre-launch risk review for RG, compliance, segment, offer, copy, T&C, channel, localisation, commercial, and operational risks. | Campaign brief, offer mechanics, SMS copy, localisation | Journey builder, A/B testing, post-campaign analysis |
+| `crm-sportsbook-journey-builder` | `skills/crm-sportsbook-journey-builder/SKILL.md` | Turns campaign strategy, copy, offer, segment, and RG review into operational CRM journey logic. | Campaign brief, SMS copy, localisation, RG/compliance review | A/B testing, post-campaign analysis |
+| `crm-sportsbook-ab-testing` | `skills/crm-sportsbook-ab-testing/SKILL.md` | Designs safe, measurable A/B tests and experiment plans with KPIs, guardrails, control logic, and decision rules. | Campaign brief, journey builder, RG/compliance review | Post-campaign analysis |
+| `crm-sportsbook-post-campaign-analysis` | `skills/crm-sportsbook-post-campaign-analysis/SKILL.md` | Analyses supplied campaign results, commercial outcomes, variants, journeys, and RG observations to produce learnings. | Campaign brief, journey builder, A/B testing | Future market context, segmentation, offers, campaign briefs, copy, localisation, RG review, journeys, and tests |
 
-The target market must always be supplied at runtime by the user through placeholders such as:
+## Recommended Usage Flow
+Standard full campaign flow:
 
-- `[TARGET_MARKET]`
-- `[TARGET_LANGUAGE]`
-- `[TARGET_CHANNEL]`
-- `[TARGET_SEGMENT]`
-- `[TARGET_EVENT]`
-- `[TARGET_SPORT]`
-- `[OFFER_MECHANIC]`
-- `[OFFER_VALUE]`
-- `[BRAND_TONE]`
-- `[T&CS]`
-- `[REGULATORY_NOTES]`
+1. Shared Principles
+2. Skill Router
+3. Market Context
+4. Event Opportunity
+5. Player Segmentation
+6. Offer Mechanics
+7. Campaign Brief
+8. SMS Copy
+9. Localisation
+10. RG & Compliance Review
+11. Journey Builder
+12. A/B Testing
+13. Post-Campaign Analysis
 
-If market-specific knowledge is required, the AI must ask for the missing detail, mark it as `[NEEDS CONFIRMATION]`, state a labelled `[ASSUMPTION]`, or research it when approved tools are available.
+Not every request needs every skill. Use `crm-sportsbook-skill-router` when the required chain is unclear.
+
+## Common Workflows
+
+### Full Campaign Creation
+Market Context -> Event Opportunity -> Player Segmentation -> Offer Mechanics -> Campaign Brief -> SMS Copy -> Localisation -> RG/Compliance Review -> Journey Builder -> A/B Testing
+
+Example request:
+"Create a campaign plan for [TARGET_SEGMENT] in [TARGET_MARKET]. Objective is [CAMPAIGN_OBJECTIVE], channel is [TARGET_CHANNEL], event is [TARGET_EVENT], and offer direction is [OFFER_MECHANIC]."
+
+### SMS-Only Copy Creation
+Campaign Brief or Offer Input -> SMS Copy -> Localisation -> RG/Compliance Review
+
+Example request:
+"Write SMS variants for [TARGET_SEGMENT] in [TARGET_MARKET]. The offer is [OFFER_VALUE] via [OFFER_MECHANIC], CTA is linked to [T&CS_LINK], and tone is [BRAND_TONE]."
+
+### Offer Review
+Offer Mechanics -> RG/Compliance Review -> Campaign Brief
+
+Example request:
+"Review [OFFER_MECHANIC] for [TARGET_SEGMENT] in [TARGET_MARKET] and identify safer or lower-cost alternatives."
+
+### Localisation Review
+SMS Copy -> Localisation -> RG/Compliance Review
+
+Example request:
+"Localise this SMS for [TARGET_LANGUAGE] in [TARGET_MARKET] using [BRAND_TONE] and preserving [T&CS_LINK]."
+
+### Journey Build
+Campaign Brief -> SMS Copy -> Localisation -> RG/Compliance Review -> Journey Builder -> A/B Testing
+
+Example request:
+"Build a CRM journey for [TARGET_SEGMENT] in [TARGET_MARKET] using [TARGET_CHANNEL], [OFFER_MECHANIC], and [TARGET_EVENT]."
+
+### Post-Campaign Learning
+Post-Campaign Analysis -> A/B Testing -> revised Campaign Brief / Offer Mechanics / Segmentation
+
+Example request:
+"Analyse the completed campaign for [TARGET_SEGMENT] in [TARGET_MARKET] and recommend what to revise before the next campaign."
+
+## Assumption Labels
+Use these labels consistently:
+
+- [CONFIRMED] - Information explicitly provided by the user or a supplied source
+- [ASSUMPTION] - Reasonable but unconfirmed assumption
+- [NEEDS CONFIRMATION] - Important detail that should be checked before launch or conclusion
+- [RISK] - Compliance, RG, commercial, UX, brand, data-quality, or operational risk
+- [RECOMMENDATION] - Proposed action
 
 ## Responsible-Gaming Principle
+All skills must avoid:
+- Targeting self-excluded users
+- Targeting users with RG risk flags
+- Encouraging chasing losses
+- Loss-recovery language
+- Guaranteed-win claims
+- Misleading risk-free wording
+- Financial-pressure framing
+- Hidden T&Cs
+- Excessive urgency
+- Manipulative reactivation
 
-Baseline responsible-gaming and suppression rules apply even where the runtime market notes are minimal. The pack must avoid targeting self-excluded users, users with responsible-gaming risk flags, or users selected because of recent heavy losses. It must avoid chasing-loss language, financial-solution claims, guaranteed-win language, aggressive urgency, unclear terms, emotional pressure, and manipulative win-back messaging.
+## How to Add a New Skill
+1. Read `README.md`.
+2. Read `AGENTS.md`.
+3. Read `skills/crm-sportsbook-shared-principles/SKILL.md`.
+4. Read relevant existing upstream and downstream skills.
+5. Create `skills/[skill-id]/SKILL.md`.
+6. Update `skill-manifest.json`.
+7. Update docs if the usage flow, inputs, audit rules, or extension guidance changes.
+8. Run the audit checklist in `docs/audit-checklist.md`.
 
-## How to Extend
+## Suggested Future Skills
+Future extensions may include:
+- `crm-sportsbook-email-copy`
+- `crm-sportsbook-push-copy`
+- `crm-sportsbook-vip-outreach`
+- `crm-sportsbook-crm-calendar`
+- `crm-sportsbook-landing-page-copy`
+- `crm-sportsbook-terms-simplifier`
 
-When adding a skill:
+These future skills do not exist yet. Do not document them as active skills until they are created and added to `skill-manifest.json`.
 
-1. Keep the new skill market-agnostic.
-2. Reference `crm-sportsbook-shared-principles`.
-3. Use runtime placeholders for all market, language, channel, event, offer, brand, terms, and regulation details.
-4. Keep channel-specific skills separate. SMS is implemented here; email and push should be added as distinct future skills.
-5. Update `skill-manifest.json`.
-6. Update `docs/usage-flow.md` if the routing changes.
-7. Run the audit checklist in `docs/audit-checklist.md`.
-
+## Git Workflow
+- Prefer one skill per commit when possible.
+- Use a documentation update after several skill changes or when pack architecture changes.
+- Run the audit checklist before merging.
+- Keep unrelated edits out of the same commit.

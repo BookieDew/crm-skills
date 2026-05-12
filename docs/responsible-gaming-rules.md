@@ -1,50 +1,96 @@
-# Responsible-Gaming Rules
+# Responsible Gaming Rules
 
-These baseline rules apply to every skill, campaign, journey, offer, and copy output. They apply even when `[REGULATORY_NOTES]` are limited.
+## Baseline Principle
+All CRM campaigns must avoid encouraging harmful gambling behaviour.
 
-## Suppression Rules
+These rules apply across strategy, segmentation, offers, copy, localisation, journeys, A/B tests, and post-campaign analysis.
 
-Suppress:
+## Mandatory Suppressions
+- Self-excluded users
+- Users with active RG restrictions
+- Users in cooling-off periods
+- Users without channel opt-in
+- Users restricted by compliance/account status
+- Users restricted by AML/fraud rules
+- Users blocked from bonuses
+- Users under bonus abuse restrictions, where relevant
+- Users recently heavy-losing, where relevant to reactivation or incentives
+- Users restricted by supplied local policy
 
-- Self-excluded users.
-- Users with active responsible-gaming risk flags.
-- Users who have opted out of marketing.
-- Users who are not eligible for `[TARGET_CHANNEL]`.
-- Users who have exceeded frequency caps.
-- Users excluded by `[REGULATORY_NOTES]`.
-- Users selected because of recent heavy losses.
-- Users whose recent behaviour suggests potential harm.
+Apply suppression checks:
+- Before audience entry
+- Before each message send
+- Before reminder sends
+- Before offer award where relevant
+- Before VIP outreach
+- Before post-campaign rollout recommendations
 
-## Prohibited Messaging
-
+## Prohibited Campaign Logic
 Do not:
+- Encourage chasing losses
+- Use recent losses as an incentive trigger
+- Frame betting as a financial solution
+- Pressure users to return
+- Shame dormant users
+- Use emotional manipulation
+- Target vulnerable users
+- Escalate urgency through repeated reminders
+- Push deposit/reload behaviour aggressively
+- Encourage excessive bet frequency
+- Encourage excessive accumulator complexity
+- Continue messaging after opt-out, RG flag, cooling-off, or self-exclusion
 
-- Encourage chasing losses.
-- Reference previous losses as a reason to bet again.
-- Say or imply betting solves financial problems.
-- Use guaranteed-win language.
-- Use misleading risk-free claims unless explicitly approved in `[REGULATORY_NOTES]` and `[T&CS]`.
-- Apply aggressive urgency.
-- Hide or obscure terms.
-- Use emotional pressure.
-- Use manipulative win-back language.
-- Imply certainty of winning.
+## Risky Wording
+Flag or rewrite:
+- Guaranteed win
+- Risk-free, unless explicitly approved
+- Free money
+- Win back
+- Recover your losses
+- Last chance, when used aggressively
+- You need this
+- Do not miss your chance, when used aggressively
+- Language implying betting is necessary to enjoy an event
 
-## Offer Safety Rules
+## Safer Wording Principles
+Use:
+- Calm value framing
+- Clear eligibility
+- Clear CTA
+- Clear T&Cs
+- Neutral event relevance
+- Non-manipulative reminders
 
-- Match `[OFFER_VALUE]` to customer value and objective.
-- Avoid rich offers for bonus abuse risk segments.
-- Avoid open-ended bonus exposure.
-- Use minimum odds where relevant.
-- Use minimum stake where relevant.
-- Use maximum bonus value where relevant.
-- Define eligible markets where relevant.
-- Define expiry clearly.
-- Require all offer constraints to align with `[T&CS]`.
+Avoid:
+- Shame
+- Guilt
+- Loss recovery
+- Financial pressure
+- Guaranteed outcome claims
+- Hidden restrictions
+- Excessive urgency
 
-## Review Outcomes
+## RG Review Triggers
+Require RG/compliance review for:
+- Reactivation campaigns
+- Deposit/reload campaigns
+- VIP campaigns
+- High-value incentives
+- Cashback/stake-back campaigns
+- Multi-step journeys with reminders
+- Campaigns with elevated opt-out, complaints, or RG flags
+- Campaigns targeting dormant or high-risk segments
 
-- `Pass`: no material RG, compliance, UX, brand, or commercial issue.
-- `Needs Revision`: issues can be fixed before launch.
-- `Do Not Launch`: material issue remains, required inputs are missing, or suppression cannot be validated.
+## Post-Campaign RG Checks
+Post-campaign analysis should review:
+- [OPT_OUT_RATE]
+- [COMPLAINTS]
+- [POST_CAMPAIGN_RG_FLAGS]
+- Self-exclusion changes, if supplied
+- Cooling-off changes, if supplied
+- High-loss indicators, if supplied
+- Segment response patterns
+- Journey reminder impact
+- Copy and localisation complaints
 
+If RG guardrails worsened, do not recommend scale without specialist review.

@@ -1,59 +1,92 @@
 # Usage Flow
 
-Use `crm-sportsbook-shared-principles` as the baseline for every workflow. If a request is unclear, start with `crm-sportsbook-skill-router`.
+Use `crm-sportsbook-shared-principles` as the baseline for every workflow. Use `crm-sportsbook-skill-router` when the CRM manager is unsure which skill chain to run.
 
-## Full Campaign
+Not every request needs every skill. Choose the shortest chain that can produce a safe, useful, and properly reviewed output.
 
+## Full Campaign Creation Flow
 1. `crm-sportsbook-market-context`
 2. `crm-sportsbook-event-opportunity`
 3. `crm-sportsbook-player-segmentation`
 4. `crm-sportsbook-offer-mechanics`
 5. `crm-sportsbook-campaign-brief`
-6. `crm-sportsbook-sms-copy` when `[TARGET_CHANNEL]` is SMS
+6. `crm-sportsbook-sms-copy`
 7. `crm-sportsbook-localisation`
 8. `crm-sportsbook-rg-compliance-review`
 9. `crm-sportsbook-journey-builder`
 10. `crm-sportsbook-ab-testing`
+11. `crm-sportsbook-post-campaign-analysis`
 
-## SMS-Only
+What each step contributes:
+- `crm-sportsbook-market-context` separates confirmed market, channel, language, brand, and regulatory inputs from assumptions.
+- `crm-sportsbook-event-opportunity` evaluates supplied sport, event, tournament, fixture, and timing context.
+- `crm-sportsbook-player-segmentation` defines target audience, exclusions, risk flags, and segment rationale.
+- `crm-sportsbook-offer-mechanics` designs or reviews the offer mechanic, value, constraints, and exposure controls.
+- `crm-sportsbook-campaign-brief` combines market, event, segment, offer, channel, commercial, and measurement logic.
+- `crm-sportsbook-sms-copy` creates SMS-specific copy variants when [TARGET_CHANNEL] is SMS.
+- `crm-sportsbook-localisation` adapts supplied campaign material to [TARGET_MARKET], [TARGET_LANGUAGE], [TARGET_CHANNEL], and [BRAND_TONE].
+- `crm-sportsbook-rg-compliance-review` checks suppression, copy, offer, T&C, compliance, RG, commercial, UX, and operational risks.
+- `crm-sportsbook-journey-builder` defines journey triggers, entry rules, steps, timing, suppressions, exits, frequency caps, measurement, and fallback logic.
+- `crm-sportsbook-ab-testing` designs safe test logic, variants, control group, KPIs, guardrails, and decision rules.
+- `crm-sportsbook-post-campaign-analysis` analyses supplied results and feeds learnings into future planning.
 
-1. Confirm `[TARGET_MARKET]`, `[TARGET_LANGUAGE]`, `[TARGET_CHANNEL]`, `[TARGET_SEGMENT]`, `[OFFER_MECHANIC]`, `[OFFER_VALUE]`, `[BRAND_TONE]`, `[T&CS]`, and `[REGULATORY_NOTES]`.
-2. Run `crm-sportsbook-sms-copy`.
-3. Run `crm-sportsbook-localisation` if local adaptation is requested.
-4. Run `crm-sportsbook-rg-compliance-review`.
+## Fast SMS Campaign Flow
+Use when campaign strategy already exists:
+1. Campaign Brief
+2. SMS Copy
+3. Localisation
+4. RG/Compliance Review
+5. Journey Builder, if more than one send
+6. A/B Testing, if testing
 
-## Offer-Only
+Required runtime context should include [TARGET_MARKET], [TARGET_LANGUAGE], [TARGET_CHANNEL], [TARGET_SEGMENT], [CAMPAIGN_OBJECTIVE], [OFFER_MECHANIC], [OFFER_VALUE], [BRAND_TONE], [T&CS], and [T&CS_LINK].
 
-1. Run `crm-sportsbook-player-segmentation`.
-2. Run `crm-sportsbook-offer-mechanics`.
-3. Run `crm-sportsbook-rg-compliance-review` for risk and constraint checks.
+## Offer-Only Flow
+1. Player Segmentation
+2. Offer Mechanics
+3. RG/Compliance Review
+4. Campaign Brief
 
-## Compliance Review
+Use when the CRM manager needs to design, compare, simplify, or risk-check [OFFER_MECHANIC] before full campaign planning.
 
-1. Run `crm-sportsbook-rg-compliance-review`.
-2. If issues are found, route fixes to `crm-sportsbook-offer-mechanics`, `crm-sportsbook-sms-copy`, `crm-sportsbook-journey-builder`, or `crm-sportsbook-campaign-brief` as needed.
+## Event-Led Flow
+1. Market Context
+2. Event Opportunity
+3. Player Segmentation
+4. Offer Mechanics
+5. Campaign Brief
 
-## Localisation
+Use when the campaign depends on [TARGET_SPORT], [TARGET_EVENT], [TARGET_TOURNAMENT], or [TARGET_FIXTURE]. Do not invent event facts or schedules.
 
-1. Run `crm-sportsbook-market-context`.
-2. Run `crm-sportsbook-localisation`.
-3. Run `crm-sportsbook-rg-compliance-review` for local risk notes supplied at runtime.
+## Reactivation Flow
+1. Player Segmentation
+2. Offer Mechanics
+3. Campaign Brief
+4. SMS Copy
+5. RG/Compliance Review
+6. Journey Builder
 
-## Journey
+Reactivation flows require stronger RG suppression and careful non-manipulative language.
 
-1. Run `crm-sportsbook-campaign-brief`.
-2. Run `crm-sportsbook-rg-compliance-review`.
-3. Run `crm-sportsbook-journey-builder`.
-4. Run `crm-sportsbook-ab-testing` if a test is needed.
+## A/B Testing Flow
+1. Campaign Brief
+2. SMS Copy / Localisation / Journey Builder
+3. RG/Compliance Review
+4. A/B Testing
+5. Post-Campaign Analysis
 
-## A/B Test
+Use this flow to compare message angle, CTA, offer value, offer mechanic, timing, journey step, localisation, or control group design.
 
-1. Run `crm-sportsbook-campaign-brief`.
-2. Run `crm-sportsbook-ab-testing`.
-3. Run `crm-sportsbook-rg-compliance-review` if any variant changes offer value, urgency, eligibility, or copy claims.
+## Post-Campaign Learning Flow
+1. Post-Campaign Analysis
+2. Update future segmentation, offer mechanics, SMS copy, journey, or A/B testing assumptions
 
-## Post-Campaign Analysis
+Use supplied performance results only. Do not invent uplift, causality, market facts, statistical significance, or regulatory conclusions.
 
-1. Run `crm-sportsbook-post-campaign-analysis`.
-2. Feed learnings into `crm-sportsbook-player-segmentation`, `crm-sportsbook-offer-mechanics`, and `crm-sportsbook-campaign-brief` for the next campaign.
-
+## Router Usage
+Use `crm-sportsbook-skill-router` when:
+- The user request is broad or ambiguous
+- The user does not know which skill to run
+- Required inputs are missing
+- The request might require multiple skills
+- The request should be redirected to a safer or more specialist workflow
